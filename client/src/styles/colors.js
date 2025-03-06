@@ -1,5 +1,4 @@
 export const COLORS = {
-	dark: '#302059',
 	deepViolet: '#B087E9',
 	lightViolet: '#CABBFF',
 	pink: '#FF8CB5',
@@ -7,5 +6,12 @@ export const COLORS = {
 	turquoise: '#AEF8ED',
 	container: '#D9D2EF',
 	card: '#F4F1FF',
-	white: '#FFFFFF'
+	white: '#FFFFFF',
+
+	dark: '#1E1E1E',
+    lime: '#55FF6F',
+    softLime: '#91FF98',
+    neon: '#00FF19',
+
 };
+

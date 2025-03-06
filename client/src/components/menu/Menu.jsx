@@ -1,6 +1,4 @@
 import {
-	StyledButton,
-	StyledButtonsContainer,
 	StyledLogOutButton,
 	StyledMenu,
 	StyledNavLink,
@@ -11,25 +9,17 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 
+
 const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();
-	if (loading) return <h2>LOADING...</h2>;
+	if (loading) return <h2>Espere...</h2>;
 	return (
 		<StyledMenu $showMenu={menuOpen} onClick={() => setMenuOpen(false)}>
 			<nav>
 				<StyledUl>
-					<StyledNavLink to={'/'}>Home</StyledNavLink>
-					<StyledNavLink to={'/shop'}>Shop</StyledNavLink>
-					{!user && (
-						<StyledButtonsContainer>
-							<Link to={'/login'}>
-								<StyledButton>Sign In</StyledButton>
-							</Link>
-							<Link to={'/register'}>
-								<StyledButton>Register</StyledButton>
-							</Link>
-						</StyledButtonsContainer>
-					)}
+					<StyledNavLink to={'/login'}>Log in</StyledNavLink>
+					<StyledNavLink to={'/shop'}>Cart</StyledNavLink>
+					<StyledNavLink to={'/contact'}>Contact</StyledNavLink>
 
 					{user && !user?.vendor && (
 						<>

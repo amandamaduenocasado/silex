@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 .VSCodeCounter
 .DS_Store
-.env
+

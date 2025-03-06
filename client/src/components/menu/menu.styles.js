@@ -5,64 +5,48 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 4.75rem;
+	top: 47rem;
 	left: 0;
-	width: 100%;
-	background-color: ${COLORS.lightViolet};
-	translate: ${({ $showMenu }) => ($showMenu ? '0' : '+100%')};
+	width: auto;
+	translate: ${({ $showMenu }) => ($showMenu ? '0' : '-100%')};
 	transition: translate 0.3s;
-	border-bottom: 0.3125rem solid ${COLORS.dark};
-	border-radius: 0 0 0.5rem 0.5rem;
 	z-index: 10;
 	max-height: 80vh;
 	overflow-y: auto;
 
-	@media screen and (width>=1024px) {
-		position: relative;
-		background-color: transparent;
-		translate: 0;
-		top: 0;
-		border-bottom: none;
-		max-width: 70%;
+
+
+	@media screen and (min-width: 1024px) {
+		bottom: 0; 
+		top: auto; 
+		translate: none; /* Desactiva la traducción si sigue ocultándose */
 	}
 `;
 
 const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
 
 	@media screen and (width>=1024px) {
-		flex-direction: row;
-		align-items: center;
-		gap: 2rem;
-		text-align: center;
-		margin-left: auto;
-		width: 100%;
-		justify-content: flex-end;
 	}
 `;
 
 const StyledNavLink = styled(NavLink)`
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.bold};
-	font-size: ${FONT_SIZE.m};
-	letter-spacing: 0.125rem;
-	padding: 1.5625rem;
-	border-bottom: 0.0625rem solid ${COLORS.dark};
+	color: ${COLORS.lime};
+	font-weight: ${FONT_WEIGHT.regular};
+	font-size: ${FONT_SIZE.s};
+	padding: 0.3rem;
+
 
 	&.active {
-		color: ${COLORS.white};
+		color: ${COLORS.neon};
 	}
 
 	@media screen and (width>=1024px) {
-		padding: 0;
-		border-bottom: none;
-		letter-spacing: 0;
-		font-size: ${FONT_SIZE.s};
+		font-size: ${FONT_SIZE.m};
 
 		&.active {
-			color: ${COLORS.deepViolet};
+			color: ${COLORS.neon};
 		}
 	}
 
@@ -73,41 +57,13 @@ const StyledNavLink = styled(NavLink)`
 
 		@media screen and (width>=1024px) {
 			&:hover {
-				color: ${COLORS.deepViolet};
+				color: ${COLORS.neon};
 			}
 		}
 	}
 `;
 
-const StyledButtonsContainer = styled.div`
-	display: flex;
-	max-width: 100%;
-	padding: 1.5625rem;
-	gap: 1.5625rem;
-`;
 
-const StyledButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 2.125rem;
-	border: 0.0625rem solid ${COLORS.dark};
-	background-color: ${COLORS.white};
-	border-radius: 0.5rem;
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.bold};
-	letter-spacing: 0;
-	padding: 1.5625rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			color: ${COLORS.white};
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-		}
-	}
-`;
 
 const StyledLogOutButton = styled.button`
 	display: flex;
@@ -138,7 +94,5 @@ export {
 	StyledMenu,
 	StyledUl,
 	StyledNavLink,
-	StyledButtonsContainer,
-	StyledButton,
 	StyledLogOutButton
 };

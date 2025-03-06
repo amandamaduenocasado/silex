@@ -1,15 +1,11 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
-import { COLORS } from '../../styles/colors';
 
 const StyledHeader = styled.header`
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: 1rem;
-	border-bottom: 0.0625rem solid ${COLORS.dark};
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
 
 	@media screen and (width>=1024px) {
 		padding-inline: 1rem;
@@ -22,18 +18,10 @@ const StyledBranding = styled.div`
 	gap: 1rem;
 `;
 
-const StyledBrand = styled.h1`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.xl};
-	margin: 0;
 
-	@media screen and (width>=1024px) {
-		white-space: nowrap;
-		margin-inline: 0rem;
-	}
-`;
-
-const StyledIcon = styled.img`
+const StyledPlus = styled.img`
+	position: absolute;
+	right: 0;
 	width: 2.5rem;
 	height: 2.5rem;
 	cursor: pointer;
@@ -42,4 +30,4 @@ const StyledIcon = styled.img`
 		display: none;
 	}
 `;
-export { StyledHeader, StyledBranding, StyledBrand, StyledIcon };
+export { StyledHeader, StyledBranding, StyledPlus };

@@ -13,7 +13,7 @@ import {
 const Footer = () => {
 	return (
 		<StyledFooter>
-			<StyledFooterToBig>
+			{/* <StyledFooterToBig>
 				<StyledFooterTop>
 					<Logo />
 					<StyledSocial>
@@ -23,9 +23,7 @@ const Footer = () => {
 						<Link>
 							<img src='/assets/images/common/x.svg' alt='x' />
 						</Link>
-						<Link>
-							<img src='/assets/images/common/youtube.svg' alt='youtube' />
-						</Link>
+
 					</StyledSocial>
 				</StyledFooterTop>
 				<StyledFooterBot>
@@ -34,10 +32,9 @@ const Footer = () => {
 						<StyledLink to='/about'>About Us</StyledLink>
 					</div>
 				</StyledFooterBot>
-			</StyledFooterToBig>
-			<StyledCopy>
-				All fluff, no dusting. Stealing our ideas might leave you in a pile of
-				lint! <span>© 2025 Dusty Bunny</span>
+			</StyledFooterToBig> */}
+			<StyledCopy> {/*Se puede poner antes del span Spain | Spanish */}
+				 <span>© 2025 Silex All rights reserved</span>
 			</StyledCopy>
 		</StyledFooter>
 	);

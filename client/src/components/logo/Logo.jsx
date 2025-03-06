@@ -5,7 +5,7 @@ const Logo = () => {
 	return (
 		<>
 			<Link to='/'>
-				<StyledLogo src='/assets/images/common/logo.png' alt='' />
+				<StyledLogo src='/assets/images/silex/logo-silex-black.png' alt='' />
 			</Link>
 		</>
 	);

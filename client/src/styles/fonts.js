@@ -1,10 +1,14 @@
 export const FONT_FAMILY = {
 	chewy: '"Chewy", serif;',
 	pacifico: '"Pacifico", serif;',
-	grandstander: '"Grandstander", serif;'
+	grandstander: '"Grandstander", serif;',
+
+	manrope: '"Manrope", serif;',
+	arapey: '"Arapey", serif;'
 };
 
 export const FONT_WEIGHT = {
+	light: '300',
 	regular: '400',
 	bold: '700'
 };
@@ -15,5 +19,5 @@ export const FONT_SIZE = {
 	l: '2rem',
 	m: '1.5rem',
 	s: '1.125rem',
-	body: '1rem'
+	xs: '0.8rem'
 };

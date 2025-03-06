@@ -27,16 +27,19 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        font-family: ${FONT_FAMILY.grandstander};
+        font-family: ${FONT_FAMILY.manrope};
         margin: 0;
         color: ${COLORS.dark};
-
     }
 
     #root{
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+    }
+
+    h1, h2{
+        font-family: ${FONT_FAMILY.manrope};
     }
 
     h1, h2, h3, h4, h5, h6, p {

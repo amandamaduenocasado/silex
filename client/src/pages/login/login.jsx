@@ -3,45 +3,49 @@ import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import {
+	StyledTitle,
+	StyledSubtitle,
 	StyledButton,
 	StyledContainer,
 	StyledForm,
 	StyledImg,
 	StyledInput,
 	StyledInputAndTag,
-	StyledMain
+	StyledMain,
+	StyledPrivacy
 } from './login.styles';
-import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const { loading } = useAuth();
-	if (loading) return <h2>Loading...</h2>;
+	if (loading) return <h2>Espere...</h2>;
 	return (
 		<StyledMain>
-			<PageHeader text={'Sign In'} />
 			<StyledContainer>
-				<StyledImg src='/assets/images/common/login.png' alt='' />
+				<StyledImg src='/assets/images/silex/mouth.png' alt='mouth' />
+				<StyledTitle>Log in</StyledTitle>
+				<StyledSubtitle>Write down your embarassed email</StyledSubtitle>
 				<StyledForm onSubmit={event => loginUser(event, navigate)}>
 					<StyledInputAndTag>
-						<label htmlFor='email'>Email:</label>
+						<label htmlFor='Email'></label>
 						<StyledInput
 							type='email'
 							name='email'
 							id='email'
-							placeholder='email'
+							placeholder='Email'
 						/>
 					</StyledInputAndTag>
 					<StyledInputAndTag>
-						<label htmlFor='password'>Password:</label>
+						<label htmlFor='Password'></label>
 						<StyledInput
 							type='text'
 							name='password'
-							placeholder='password'
+							placeholder='Password'
 							id='password'
 						/>
 					</StyledInputAndTag>
 					<StyledButton type='submit' value='Sign In' />
+					<StyledPrivacy>Privacy Policy</StyledPrivacy>
 				</StyledForm>
 			</StyledContainer>
 		</StyledMain>

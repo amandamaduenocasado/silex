@@ -1,33 +1,31 @@
 import { useState } from 'react';
 import Menu from '../menu/Menu';
 import {
-	StyledBrand,
 	StyledBranding,
 	StyledHeader,
-	StyledIcon
+	StyledPlus
 } from './header.styles';
-import Logo from '../logo/Logo';
+// import Logo from '../logo/Logo'; 
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<StyledHeader>
 			<StyledBranding>
-				<Logo />
-				<StyledBrand>Dusty Bunny</StyledBrand>
+				{/* <Logo /> */}
 			</StyledBranding>
 
 			{!menuOpen && (
-				<StyledIcon
+				<StyledPlus
 					onClick={() => setMenuOpen(true)}
-					src='/assets/images/common/hamburger.svg'
+					src='/assets/images/silex/menu-plus-green.svg'
 					alt=''
 				/>
 			)}
 			{menuOpen && (
-				<StyledIcon
+				<StyledPlus
 					onClick={() => setMenuOpen(false)}
-					src='/assets/images/common/close.svg'
+					src='/assets/images/silex/menu-plus-green.svg'
 					alt=''
 				/>
 			)}
