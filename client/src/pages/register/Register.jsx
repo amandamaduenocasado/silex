@@ -2,47 +2,50 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { createData } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
 	StyledButton,
-	StyledCheckbox,
+	// StyledCheckbox,
 	StyledContainer,
-	StyledImg,
 	StyledInput,
 	StyledInputAndTag,
 	StyledMain,
-	StyledRadioPack,
-	StyledRadiosContainer,
+	StyledTerms,
+	StyledTermsContainer,
 	StyledRegisterForm,
-	StyledRequired
+	StyledRequired,
+	StyledLogoRegister,
 } from './register.styles';
-import { useAuth } from '../../hooks/useAuth';
-import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
+import FireButton from '../../components/fireButton/FireButton';
+
 import { useForm } from 'react-hook-form';
-import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Register = () => {
 	const {
 		register,
 		handleSubmit,
-		watch,
-		formState: { errors }
+		formState: { errors },
 	} = useForm();
 	const navigate = useNavigate();
-	const { loading } = useAuth();
 	const errorMessage = '*This field is required';
-	const isEmployee = watch('employee') === 'pelusas';
-	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
-			<PageHeader text={'Register'} />
+			<FireButton />
+			<Link to='/'>
+				<StyledLogoRegister
+					srcSet='/assets/images/silex/logo-silex-2025-s.png 768w, /assets/images/silex/logo-silex-2025-s.png 1024w'
+					sizes='(max-width: 1024px) 50vw, 100vw'
+					src='/assets/images/silex/logo-silex-2025-s.png'
+					alt='logo silex'
+				/>
+			</Link>
 			<StyledContainer>
-				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm
 					onSubmit={handleSubmit(data => registerUser(data, navigate))}
 				>
-					<AvatarGrid register={register} error={errors.avatar} />
+					{/* NAME */}
 					<StyledInputAndTag>
-						<label htmlFor='name'>Name:</label>
+						<label htmlFor='name'></label>
 						<StyledInput
 							type='text'
 							{...register('name', { required: errorMessage })}
@@ -50,8 +53,10 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.name?.message}</StyledRequired>
 					</StyledInputAndTag>
+
+					{/* SURNAME */}
 					<StyledInputAndTag>
-						<label htmlFor='surname'>Surname:</label>
+						<label htmlFor='surname'></label>
 						<StyledInput
 							type='text'
 							{...register('surname', { required: errorMessage })}
@@ -59,8 +64,21 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.surname?.message}</StyledRequired>
 					</StyledInputAndTag>
+
+					{/* PROVINCE */}
 					<StyledInputAndTag>
-						<label htmlFor='address'>Address:</label>
+						<label htmlFor='province'></label>
+						<StyledInput
+							type='text'
+							{...register('province')}
+							placeholder='Province'
+						/>
+						<StyledRequired>{errors.address?.message}</StyledRequired>
+					</StyledInputAndTag>
+
+					{/* ADDRESS */}
+					<StyledInputAndTag>
+						<label htmlFor='address'></label>
 						<StyledInput
 							type='text'
 							{...register('address', { required: errorMessage })}
@@ -68,8 +86,10 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.address?.message}</StyledRequired>
 					</StyledInputAndTag>
+
+					{/* EMAIL */}
 					<StyledInputAndTag>
-						<label htmlFor='email'>Email:</label>
+						<label htmlFor='email'></label>
 						<StyledInput
 							type='email'
 							{...register('email', { required: errorMessage })}
@@ -77,8 +97,10 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.email?.message}</StyledRequired>
 					</StyledInputAndTag>
+
+					{/* PASSWORD */}
 					<StyledInputAndTag>
-						<label htmlFor='pass'>Password:</label>
+						<label htmlFor='password'></label>
 						<StyledInput
 							type='text'
 							{...register('password', { required: errorMessage })}
@@ -86,54 +108,55 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.password?.message}</StyledRequired>
 					</StyledInputAndTag>
-					<StyledInputAndTag>
-						<label htmlFor='employee'>
-							If you are an employee, write here the password!
+					<StyledTerms>
+						<label htmlFor='terms'>
+							<span>
+								The password must have a length of eight to sixteen characters
+							</span>
 						</label>
+					</StyledTerms>
+
+					{/* PHONE */}
+					<StyledInputAndTag>
+						<label htmlFor='phone'></label>
 						<StyledInput
 							type='text'
-							{...register('employee')}
-							placeholder='Employee Password'
+							{...register('phone')}
+							placeholder='Phone'
 						/>
-						<StyledRequired>{errors.employee?.message}</StyledRequired>
+						<StyledRequired>{errors.password?.message}</StyledRequired>
 					</StyledInputAndTag>
-					<StyledRadiosContainer>
-						{!isEmployee && (
-							<StyledRadioPack>
-								<label htmlFor='userProfile'>
-									I confirm all data provided is correct!
-								</label>
-								<StyledCheckbox
-									type='radio'
-									{...register('profile', { required: errorMessage })}
-									value={false}
-									id='userProfile'
-								/>
-							</StyledRadioPack>
-						)}
-						{isEmployee && (
-							<StyledRadioPack>
-								<label htmlFor='vendorProfile'>Vendor</label>
-								<StyledCheckbox
-									type='radio'
-									{...register('profile', { required: errorMessage })}
-									value={true}
-									id='vendorProfile'
-								/>
-							</StyledRadioPack>
-						)}
-						<StyledRequired>{errors.profile?.message}</StyledRequired>
-					</StyledRadiosContainer>
-					<StyledRadioPack>
+					<StyledTermsContainer></StyledTermsContainer>
+					<StyledTerms>
 						<label htmlFor='terms'>
-							I accept the <span>Terms & Conditions</span>
+							<span>
+								By clicking Continue you confirm that you have read and
+								understood our Privacy Policy, you are over 16 years old, and
+								you wish to register
+							</span>
 						</label>
-						<StyledCheckbox
+						{/* <StyledCheckbox
 							type='radio'
 							{...register('terms', { required: errorMessage })}
 							id='terms'
-						/>
-					</StyledRadioPack>
+						/> */}
+					</StyledTerms>
+					<StyledTerms>
+						<label htmlFor='terms'>
+							<span>
+								I agree to receive (by email, phone, and other forms of
+								electronic communication) commercial communications, including
+								marketing and promotional messages, newsletters, advertisements,
+								and catalogs related to Silex
+							</span>
+						</label>
+						{/* <StyledCheckbox
+							type='radio'
+							{...register('terms', { required: errorMessage })}
+							id='terms'
+						/> */}
+					</StyledTerms>
+
 					<StyledButton type='submit' value='Register' />
 				</StyledRegisterForm>
 			</StyledContainer>
@@ -156,7 +179,7 @@ const registerUser = async (data, navigate) => {
 			surname,
 			address,
 			email,
-			vendor: profile === 'true'
+			vendor: profile === 'true',
 		};
 		await createData(newUser);
 		console.log('User Registered');

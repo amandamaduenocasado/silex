@@ -1,81 +1,74 @@
 import styled from 'styled-components';
-import { COLORS } from '../../styles/colors';
-import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
-import { Link } from 'react-router-dom';
+import { FONT_FAMILY } from '../../styles/fonts';
 
 const StyledFooter = styled.footer`
-	position: relative;
 	display: flex;
-	flex-direction: column;
-	width: 100%;
-	/* border-top: 0.0625rem solid ${COLORS.dark}; */
-	padding-block: 1rem;
-`;
 
-const StyledFooterToBig = styled.div`
-	@media screen and (width>=1024px) {
-		display: flex;
-		align-items: center;
-	}
-`;
-
-const StyledFooterTop = styled.div`
-	display: flex;
-	justify-content: space-between;
-	margin: 0 1rem 1rem;
-
-	@media screen and (width>=1024px) {
-		flex-direction: column;
-		gap: 1rem;
-	}
-`;
-
-const StyledSocial = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 0.8rem;
-`;
-
-const StyledFooterBot = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	@media screen and (width>=1024px) {
+	@media screen and (max-width: 768px) {
 		width: 100%;
-		align-items: flex-end;
+		display: flex;
+		flex-direction: column;
 	}
 `;
 
-const StyledLink = styled(Link)`
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.regular};
-	font-size: ${FONT_SIZE.s};
-	margin: 1rem;
+const StyledGrid = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 100%;
+	padding: 0 1rem;
+	gap: 0.7rem;
+	margin-bottom: 0.2rem;
 
-	@media (hover: hover) {
-		&:hover {
-			color: ${COLORS.deepViolet};
-		}
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
 	}
 `;
 
-const StyledCopy = styled.p`
-	font-style: italic;
-	font-size: 0.8rem;
-	text-align: center;
+const StyledSpan = styled.span`
+	font-size: 0.6rem;
 
-	@media screen and (width>=1024px) {
-		white-space: nowrap;
+	@media screen and (min-width: 768px) {
+		font-size: 0.9rem;
+	}
+`;
+
+const StyledSpanCenter = styled(StyledSpan)``;
+
+const StyledSpanRight = styled(StyledSpan)`
+	@media screen and (min-width: 768px) {
+		text-align: right;
+		justify-self: end; /* Esto alinea el span al final de su columna */
+		font-size: 1.1rem;
+		font-family: ${FONT_FAMILY.arapey};
+	}
+`;
+
+const StyledVideoFooter = styled.div`
+	width: 25%;
+	object-fit: cover;
+
+	video {
+		width: 100%;
+		height: auto;
+		border-radius: 2%;
+	}
+`;
+
+const StyledLogoFooter = styled.img`
+	width: 100vw;
+	height: auto;
+
+	@media screen and (min-width: 768px) {
+		display: none;
 	}
 `;
 
 export {
 	StyledFooter,
-	StyledFooterToBig,
-	StyledFooterTop,
-	StyledSocial,
-	StyledFooterBot,
-	StyledLink,
-	StyledCopy
+	StyledGrid,
+	StyledSpan,
+	StyledVideoFooter,
+	StyledLogoFooter,
+	StyledSpanRight,
+	StyledSpanCenter,
 };

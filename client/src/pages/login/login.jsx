@@ -1,7 +1,6 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 import {
 	StyledTitle,
 	StyledSubtitle,
@@ -15,15 +14,16 @@ import {
 	StyledPrivacy
 } from './login.styles';
 
+import FireButton from '../../components/fireButton/FireButton';
+
 const Login = () => {
 	const navigate = useNavigate();
-	const { loading } = useAuth();
-	if (loading) return <h2>Espere...</h2>;
 	return (
 		<StyledMain>
+			<FireButton />
 			<StyledContainer>
 				<StyledImg src='/assets/images/silex/mouth.png' alt='mouth' />
-				<StyledTitle>Log in</StyledTitle>
+				<StyledTitle>LOG IN</StyledTitle>
 				<StyledSubtitle>Write down your embarassed email</StyledSubtitle>
 				<StyledForm onSubmit={event => loginUser(event, navigate)}>
 					<StyledInputAndTag>
@@ -38,7 +38,7 @@ const Login = () => {
 					<StyledInputAndTag>
 						<label htmlFor='Password'></label>
 						<StyledInput
-							type='text'
+							type='password'
 							name='password'
 							placeholder='Password'
 							id='password'

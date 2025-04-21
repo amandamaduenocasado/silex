@@ -6,10 +6,13 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 10rem;
+	justify-content: center;
 	background-color: ${COLORS.lime};
 	width: 100%;
 	min-height: 100vh;
+
+	@media screen and (width>=768px) {
+	}
 `;
 
 const StyledContainer = styled.div`
@@ -24,21 +27,34 @@ const StyledContainer = styled.div`
 	width: 90%;
 
 	@media screen and (width>=768px) {
-		width: 80%;
-		flex-direction: row;
+		width: 41%;
+		padding: 2rem;
+		padding-top: 2rem;
 	}
 `;
 
 const StyledTitle = styled.h2`
+	@media screen and (width>=768px) {
+		font-size: ${FONT_SIZE.m};
+	}
 `;
 
 const StyledSubtitle = styled.span`
 	text-align: center;
 	font-size: ${FONT_SIZE.xs};
+
+	@media screen and (width>=768px) {
+		font-size: ${FONT_SIZE.xs};
+		margin-bottom: 1.5rem;
+	}
 `;
 
 const StyledImg = styled.img`
 	width: 15rem;
+
+	@media screen and (width>=768px) {
+		width: 15rem;
+	}
 `;
 
 const StyledForm = styled.form`
@@ -46,13 +62,16 @@ const StyledForm = styled.form`
 	flex-direction: column;
 	gap: 0.2rem;
 	width: 90%;
+
+	@media screen and (width>=768px) {
+		gap: 0.4rem;
+	}
 `;
 
 const StyledInputAndTag = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 0.1rem;
-	
 `;
 
 const StyledInput = styled.input`
@@ -61,9 +80,14 @@ const StyledInput = styled.input`
 	align-items: center;
 	height: 2.5rem;
 	border-radius: 0.2rem;
-	border: 0.03rem solid #D9D9D9;
+	border: 0.03rem solid #d9d9d9;
 	padding-inline: 0.5rem;
-	text-align: center
+	text-align: center;
+
+	@media screen and (width>=768px) {
+		font-size: ${FONT_SIZE.xs};
+		height: 2.5rem;
+	}
 `;
 
 const StyledButton = styled.input`
@@ -84,6 +108,11 @@ const StyledButton = styled.input`
 			background-color: ${COLORS.lime};
 			color: white;
 		}
+
+		@media screen and (width>=768px) {
+			font-size: ${FONT_SIZE.xs};
+			height: 3.5rem;
+		}
 	}
 `;
 
@@ -94,6 +123,10 @@ const StyledPrivacy = styled.span`
 	align-items: center;
 	text-align: center;
 	font-size: ${FONT_SIZE.xs};
+
+	@media screen and (width>=768px) {
+		font-size: ${FONT_SIZE.xs};
+	}
 `;
 
 export {
@@ -106,5 +139,5 @@ export {
 	StyledButton,
 	StyledPrivacy,
 	StyledTitle,
-	StyledSubtitle
+	StyledSubtitle,
 };

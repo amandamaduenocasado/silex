@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
+import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../styles/colors';
 
@@ -7,88 +7,88 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 2.4375rem;
-	gap: 2.4375rem;
+	justify-content: center;
+	background-color: ${COLORS.lime};
+	width: 100%;
+	min-height: 100vh;
 
 	@media screen and (width>=768px) {
-		background-image: url('/assets/images/common/banner.jpg');
-		background-size: cover;
 	}
-
-	@media screen and (width>=1024px) {
-		gap: 5rem;
-	}
-`;
-
-const StyledQuestion = styled.h2`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	line-height: 120%;
-	text-align: center;
 `;
 
 const StyledRedirectContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 80%;
-	gap: 2.4375rem;
+	gap: 1.5rem;
 
 	@media screen and (width>=768px) {
+		display: flex;
 		flex-direction: row;
-		justify-content: space-evenly;
-	}
-
-	@media screen and (width>=1024px) {
-		align-items: flex-start;
+		gap: 3rem;
 	}
 `;
 
 const StyledImageAndText = styled(Link)`
-	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
-	width: 13.75rem;
+	align-items: center;
+	justify-content: center;
+	width: 14rem;
+	height: 14rem;
 	cursor: pointer;
+	border-radius: 0.3rem;
+	box-shadow: 0.25rem 0.25rem 0.6rem 0.05rem rgba(0, 0, 0, 0.3);
+	background-color: white;
+
+	@media screen and (min-width: 1024px) {
+		width: 24.2rem;
+		height: 24.2rem;
+	}
 `;
 
 const StyledImgRedirect = styled.img`
-	height: 13.75rem;
-	width: 13.75rem;
-	border-radius: 1rem;
-	box-shadow: 0 0.25rem 0.625rem 0.25rem;
+	width: 100%; /* Que ocupe todo el ancho del contenedor */
+	height: auto;
+	max-width: 25rem; /* Ajusta el tamaño máximo en PC */
+	margin-bottom: 0.7rem;
+
+	@media screen and (min-width: 1024px) {
+		max-width: 100%; /* Ajusta el tamaño en PC */
+		margin-bottom: 1.4rem;
+	}
 `;
 
-const StyledActionText = styled.span`
-	position: absolute;
-	left: 50%;
-	translate: -50%;
-	top: 0.5rem;
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	color: ${COLORS.white};
-	white-space: nowrap;
-	-webkit-text-stroke: 0.125rem ${COLORS.dark};
-`;
-
-const StyledCheer = styled.p`
-	display: none;
+const StyledCta = styled.p`
+	display: block;
+	font-size: ${FONT_SIZE.s};
+	font-weight: ${FONT_WEIGHT.regular};
+	color: ${COLORS.deepBlue};
+	text-align: center;
 
 	@media screen and (width>=1024px) {
-		display: block;
-		line-height: 200%;
-		font-size: ${FONT_SIZE.m};
+		font-size: ${FONT_SIZE.xl};
+	}
+`;
+
+const StyledQuestion = styled.p`
+	display: block;
+	font-size: ${FONT_SIZE.s};
+	color: ${COLORS.deepBlue};
+	font-weight: ${FONT_WEIGHT.bold};
+	margin-bottom: 4rem;
+	padding-inline: 5rem;
+
+	@media screen and (width>=1024px) {
+		font-size: ${FONT_SIZE.xxl};
 		text-align: center;
 	}
 `;
 
 export {
 	StyledMain,
-	StyledQuestion,
 	StyledRedirectContainer,
 	StyledImageAndText,
 	StyledImgRedirect,
-	StyledActionText,
-	StyledCheer
+	StyledCta,
+	StyledQuestion,
 };

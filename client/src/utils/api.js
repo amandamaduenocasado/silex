@@ -1,7 +1,7 @@
-const URL = 'http://localhost:3000';
+const URL = import.meta.env.VITE_API_URL;
 //const URL = 'https://dusty-bunny-server.onrender.com';
 const API_URL = '/api/users/';
-const API_PRODUCTS_URL = '/api/fluffs/';
+const API_PRODUCTS_URL = '/silex/';
 const API_ORDERS_URL = '/api/orders/';
 const API_USER_ORDERS_URL = '/api/orders/user/';
 
@@ -18,7 +18,7 @@ const createData = async (newUser, setMailOk) => {
 		const response = await fetch(URL + API_URL, {
 			method: 'POST',
 			body: JSON.stringify(newUser),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 
 		if (!response.ok) {
@@ -53,7 +53,7 @@ const updateFavById = async (userId, newFavs) => {
 		const response = await fetch(URL + API_URL + userId, {
 			method: 'PATCH',
 			body: JSON.stringify({ favs: updatedFavs }),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 
 		const data = await response.json();
@@ -68,7 +68,7 @@ const updateDataById = async (id, newUser) => {
 		const response = await fetch(URL + API_URL + id, {
 			method: 'PATCH',
 			body: JSON.stringify(newUser),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 		const data = await response.json();
 		return data;
@@ -99,7 +99,7 @@ const addFavToProduct = async id => {
 		const response = await fetch(URL + API_PRODUCTS_URL + id, {
 			method: 'PATCH',
 			body: JSON.stringify({ fav: favNumber }),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 		const data = await response.json();
 		return data;
@@ -116,7 +116,7 @@ const removeFavToProduct = async id => {
 		const response = await fetch(URL + API_PRODUCTS_URL + id, {
 			method: 'PATCH',
 			body: JSON.stringify({ fav: favNumber }),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 		const data = await response.json();
 		return data;
@@ -139,7 +139,7 @@ const addQuantityToProduct = async cart => {
 			const response = await fetch(URL + API_PRODUCTS_URL + item._id, {
 				method: 'PATCH',
 				body: JSON.stringify({ ordered: newOrdered }),
-				headers: { 'Content-Type': 'application/json' }
+				headers: { 'Content-Type': 'application/json' },
 			});
 			return await response.json();
 		});
@@ -157,7 +157,7 @@ const updateProductById = async (id, newInfo) => {
 		const response = await fetch(URL + API_PRODUCTS_URL + id, {
 			method: 'PATCH',
 			body: JSON.stringify(newInfo),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 
 		const data = await response.json();
@@ -186,7 +186,7 @@ const createOrder = async newOrder => {
 		const response = await fetch(URL + API_ORDERS_URL, {
 			method: 'POST',
 			body: JSON.stringify(newOrder),
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 		});
 
 		const data = await response.json();
@@ -210,5 +210,5 @@ export {
 	updateProductById,
 	findUserOrders,
 	findOrder,
-	createOrder
+	createOrder,
 };

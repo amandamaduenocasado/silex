@@ -42,7 +42,7 @@ const StyledInput = styled.span`
 	font-family: ${FONT_FAMILY.pacifico};
 	font-size: ${FONT_SIZE.m};
 	opacity: ${({ $on }) => ($on ? '100%' : '50%')};
-	align-self: ${({ $align }) => ($align ? 'flex-start' : 'none')};
+	align-self: ${({ $align }) => ($align ? 'flex-scrol-snap-type: y proximity;' : 'none')};
 `;
 
 export { StyledDynamicCard, StyledInfoContainer, StyledInput };

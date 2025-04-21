@@ -1,38 +1,34 @@
 import {
-	StyledActionText,
-	StyledCheer,
+	StyledCta,
 	StyledImageAndText,
 	StyledImgRedirect,
 	StyledMain,
+	StyledRedirectContainer,
 	StyledQuestion,
-	StyledRedirectContainer
 } from './redirect.styles';
+
+// import FireButton from '../../components/fireButton/FireButton';
 
 const Redirect = () => {
 	return (
 		<StyledMain>
-			<StyledQuestion>
-				Do you already have an account as a Fluffy Lover?
-			</StyledQuestion>
+			{/* <FireButton /> */}
+			<StyledQuestion>DO YOU ALREADY HAVE AN ACCOUNT?</StyledQuestion>
 			<StyledRedirectContainer>
 				<StyledImageAndText to={'/login'}>
-					<StyledActionText>Sign in</StyledActionText>
 					<StyledImgRedirect
-						src='/assets/images/common/login.png'
+						src='/public/assets/images/silex/baby.png'
 						alt='login'
 					/>
-					<StyledCheer>
-						Don´t let your favorite fluff float away! Log in now and keep your
-						dust treasures safe!
-					</StyledCheer>
+					<StyledCta>LOG IN</StyledCta>
 				</StyledImageAndText>
+
 				<StyledImageAndText to={'/register'}>
-					<StyledActionText>Register</StyledActionText>
-					<StyledImgRedirect src='/assets/images/common/register.jpg' alt='' />
-					<StyledCheer>
-						Join Dusty Bunny today – because even the finest fluff deserves a
-						good home!
-					</StyledCheer>
+					<StyledImgRedirect
+						src='/public/assets/images/silex/mantis.png'
+						alt='register'
+					/>
+					<StyledCta>REGISTER</StyledCta>
 				</StyledImageAndText>
 			</StyledRedirectContainer>
 		</StyledMain>

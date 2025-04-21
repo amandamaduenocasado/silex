@@ -5,46 +5,52 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 47rem;
+	top: 46rem;
 	left: 0;
 	width: auto;
-	translate: ${({ $showMenu }) => ($showMenu ? '0' : '-100%')};
-	transition: translate 0.3s;
 	z-index: 10;
 	max-height: 80vh;
-	overflow-y: auto;
 
-
+	transition: transform 0.3s ease-in-out; /* Suaviza la apertura del menú */
+	transform: ${({ $menuOpen }) =>
+		$menuOpen ? 'translateX(0)' : 'translateX(-100%)'};
 
 	@media screen and (min-width: 1024px) {
-		bottom: 0; 
-		top: auto; 
-		translate: none; /* Desactiva la traducción si sigue ocultándose */
+		overflow-y: hidden; /* Oculta la barrita */
+		bottom: 0;
+		top: auto;
+		transform: translateX(0); /* Siempre visible en pantallas grandes */
+		width: auto;
+		max-height: none; /* No limitamos la altura en desktop */
 	}
 `;
 
 const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
+	padding-left: 0.3rem;
+	padding-top: 1.3rem;
+	gap: 0.4rem;
 
-	@media screen and (width>=1024px) {
+	@media screen and (width >= 1024px) {
+		padding: 0.7rem;
+		gap: 0.7rem;
 	}
 `;
 
 const StyledNavLink = styled(NavLink)`
+	all: unset;
 	color: ${COLORS.lime};
 	font-weight: ${FONT_WEIGHT.regular};
 	font-size: ${FONT_SIZE.s};
-	padding: 0.3rem;
-
+	border: none;
 
 	&.active {
 		color: ${COLORS.neon};
 	}
 
-	@media screen and (width>=1024px) {
-		font-size: ${FONT_SIZE.m};
-
+	@media screen and (width >= 1024px) {
+		font-size: 1.3rem;
 		&.active {
 			color: ${COLORS.neon};
 		}
@@ -55,15 +61,14 @@ const StyledNavLink = styled(NavLink)`
 			color: ${COLORS.white};
 		}
 
-		@media screen and (width>=1024px) {
+		@media screen and (width >= 1024px) {
 			&:hover {
 				color: ${COLORS.neon};
+				cursor: pointer;
 			}
 		}
 	}
 `;
-
-
 
 const StyledLogOutButton = styled.button`
 	display: flex;
@@ -90,9 +95,4 @@ const StyledLogOutButton = styled.button`
 	}
 `;
 
-export {
-	StyledMenu,
-	StyledUl,
-	StyledNavLink,
-	StyledLogOutButton
-};
+export { StyledMenu, StyledUl, StyledNavLink, StyledLogOutButton };

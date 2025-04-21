@@ -1,54 +1,47 @@
+import { useAuth } from '../../hooks/useAuth';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase.config';
 import {
 	StyledLogOutButton,
 	StyledMenu,
 	StyledNavLink,
-	StyledUl
+	StyledUl,
 } from './menu.styles';
-import { useAuth } from '../../hooks/useAuth';
-import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../config/firebase.config';
 
+const Menu = ({ showMenuAndButton, menuOpen }) => {
+	const { user } = useAuth();
 
-const Menu = ({ menuOpen, setMenuOpen }) => {
-	const { user, loading } = useAuth();
-	if (loading) return <h2>Espere...</h2>;
+	// Si showMenuAndButton es false y no está abierto el menú, no renderizamos el menú
+	if (!showMenuAndButton && !menuOpen) return null;
+
+	const logout = async () => {
+		try {
+			await signOut(auth);
+			console.log('User logged out successfully');
+		} catch (error) {
+			console.error('Error logging out:', error);
+		}
+	};
+
 	return (
-		<StyledMenu $showMenu={menuOpen} onClick={() => setMenuOpen(false)}>
+		<StyledMenu $menuOpen={menuOpen}>
 			<nav>
 				<StyledUl>
-					<StyledNavLink to={'/login'}>Log in</StyledNavLink>
-					<StyledNavLink to={'/shop'}>Cart</StyledNavLink>
-					<StyledNavLink to={'/contact'}>Contact</StyledNavLink>
+					<StyledNavLink to={'/redirect'}>LOG IN</StyledNavLink>
+					<StyledNavLink to={'/cart'}>CART</StyledNavLink>
+					<StyledNavLink to={'/contact'}>CONTACT</StyledNavLink>
 
-					{user && !user?.vendor && (
-						<>
-							<StyledNavLink to={`/user/${user._id}`}>User Page</StyledNavLink>
-							<StyledNavLink to={`/orders/${user._id}`}>
-								My Orders
-							</StyledNavLink>
-							<StyledNavLink to={'/cart'}>Cart</StyledNavLink>
-						</>
-					)}
+					{user && <StyledNavLink to='/profile'>MY PROFILE</StyledNavLink>}
 
-					{user && user?.vendor && (
-						<>
-							<StyledNavLink to={'/sales'}>My Sales</StyledNavLink>
-						</>
-					)}
 					{user && (
-						<Link to={'/'}>
-							<StyledLogOutButton onClick={logout}>Log Out</StyledLogOutButton>
-						</Link>
+						<StyledLogOutButton onClick={logout}>
+							<StyledNavLink to={'/'}>LOG OUT</StyledNavLink>
+						</StyledLogOutButton>
 					)}
 				</StyledUl>
 			</nav>
 		</StyledMenu>
 	);
-};
-
-const logout = async () => {
-	await signOut(auth);
 };
 
 export default Menu;

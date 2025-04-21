@@ -1,35 +1,47 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Menu from '../menu/Menu';
-import {
-	StyledBranding,
-	StyledHeader,
-	StyledPlus
-} from './header.styles';
-// import Logo from '../logo/Logo'; 
+import { StyledBranding, StyledHeader, StyledPlus } from './header.styles';
+import Logo from '../logo/Logo';
 
-const Header = () => {
+const Header = ({ showMenu, onCartClick }) => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const location = useLocation();
+
+	// Solo muestra el logo en ciertas páginas
+	const showLogo =
+		location.pathname === '/login' ||
+		location.pathname === '/about' ||
+		location.pathname === '/shop' ||
+		location.pathname === '/redirect' ||
+		location.pathname === '/';
+
+	// Función para abrir/cerrar el menú
+	const handleMenuToggle = () => {
+		setMenuOpen(!menuOpen);
+	};
+
 	return (
 		<StyledHeader>
-			<StyledBranding>
-				{/* <Logo /> */}
-			</StyledBranding>
+			{showLogo && (
+				<StyledBranding>
+					<Logo />
+				</StyledBranding>
+			)}
 
-			{!menuOpen && (
-				<StyledPlus
-					onClick={() => setMenuOpen(true)}
-					src='/assets/images/silex/menu-plus-green.svg'
-					alt=''
-				/>
-			)}
-			{menuOpen && (
-				<StyledPlus
-					onClick={() => setMenuOpen(false)}
-					src='/assets/images/silex/menu-plus-green.svg'
-					alt=''
-				/>
-			)}
-			<Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+			{/* Botón Plus para abrir/cerrar el menú */}
+			<StyledPlus
+				onClick={handleMenuToggle}
+				src='/assets/images/silex/menu-plus-green.svg'
+				alt='Menu'
+			/>
+
+			{/* Pasamos los props al componente Menu, cuidado lo hacemos sin el $ */}
+			<Menu
+				showMenuAndButton={showMenu}
+				menuOpen={menuOpen}
+				onCartClick={onCartClick}
+			/>
 		</StyledHeader>
 	);
 };

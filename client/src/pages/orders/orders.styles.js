@@ -15,7 +15,7 @@ const StyledAllComp = styled.div`
 
 	@media screen and (width>=1024px) {
 		flex-direction: row;
-		align-items: start;
+		align-items: scrol-snap-type: y proximity;;
 		justify-content: center;
 		flex-wrap: wrap;
 	}

@@ -65,7 +65,7 @@ const CartProvider = ({ children }) => {
 				deleteFromCart,
 				quantityToCard,
 				totalPrice,
-				totalQuantity
+				totalQuantity,
 			}}
 		>
 			{children}

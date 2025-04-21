@@ -2,7 +2,7 @@ import Logo from '../logo/Logo';
 import {
 	StyledDynamicCard,
 	StyledInfoContainer,
-	StyledInput
+	StyledInput,
 } from './dynamicCard.styles';
 
 const DynamicCard = ({ nameValues, numberValues, dateValues }) => {
@@ -11,7 +11,7 @@ const DynamicCard = ({ nameValues, numberValues, dateValues }) => {
 			<Logo />
 			<StyledInfoContainer>
 				<span>Name & Surname</span>
-				{!nameValues && <StyledInput>Fluffy Duster</StyledInput>}
+				{!nameValues && <StyledInput>Paqui Paquita</StyledInput>}
 				{nameValues && <StyledInput $on={true}>{nameValues}</StyledInput>}
 			</StyledInfoContainer>
 			<StyledInfoContainer>

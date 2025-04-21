@@ -9,7 +9,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const ProductCard = ({ id, image, name, price }) => {
 	const { user } = useAuth();
-	const direction = user ? `/product/${id}` : '/redirect';
+	const direction = user ? `/product/${id}` : '/login';
 	return (
 		<Link to={direction}>
 			<StyledSlide>
