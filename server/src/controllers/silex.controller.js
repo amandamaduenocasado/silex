@@ -24,32 +24,6 @@ silexController.getProductsById = async (req, res) => {
   }
 };
 
-silexController.getProductsBySize = async (req, res) => {
-  const { size } = req.params;
-  try {
-    const product = await ProductModel.find({ size: { $eq: size } });
-    if (!product) {
-      return res.status(200).json([]);
-    }
-    return res.status(200).json(product);
-  } catch (error) {
-    return res.status(500).json({ error: "Error reading database" + error });
-  }
-};
-
-silexController.getProductsByDiet = async (req, res) => {
-  const { diet } = req.params;
-  try {
-    const product = await ProductModel.find({ diet: { $eq: diet } });
-    if (!product) {
-      return res.status(200).json([]);
-    }
-    return res.status(200).json(product);
-  } catch (error) {
-    return res.status(500).json({ error: "Error reading database" + error });
-  }
-};
-
 silexController.getProductsByCategory = async (req, res) => {
   const { category } = req.params;
   try {

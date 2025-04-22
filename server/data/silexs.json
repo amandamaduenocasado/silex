@@ -1,0 +1,32 @@
+[
+  {
+    "image": "/assets/images/silex/baby-reflect.png",
+    "name": "silex solar",
+    "category": "skin",
+    "price": 17.95,
+    "description": "Facial sunscreen with an ultra-light texture and an aqueous external phase, leaving a silky finish.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/silex/mouth.background.png",
+    "name": "silex cleanser",
+    "category": "skin",
+    "price": 20.95,
+    "description": "Facial cleanser with an ultra-light texture and an aqueous external phase, leaving a silky finish",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/silex/mantis-scene.jpg",
+    "name": "silex retinol",
+    "category": "skin",
+    "price": 17.95,
+    "description": "Contains encapsulated retinol to help rejuvenate the skin. Free of fragrances and oils",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  }
+]

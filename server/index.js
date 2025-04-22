@@ -4,12 +4,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const silexRoutes = require("./routes/silex.routes");
-const usersRoutes = require("./routes/users.routes");
-const ordersRoutes = require("./routes/orders.routes");
+const silexRoutes = require("./src/routes/silex.routes");
+const usersRoutes = require("./src/routes/users.routes");
+const ordersRoutes = require("./src/routes/orders.routes");
 
 const corsOptions = {
-  origin: "http://localhost:5174", // Especificamos el origen exacto
+  origin: "http://localhost:5173", // Especificamos el origen exacto
   methods: ["GET", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // <- Esto es clave si usas cookies o headers especiales

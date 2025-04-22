@@ -17,7 +17,7 @@ import {
 } from './home.styles';
 
 import { Link } from 'react-router-dom';
-import FireButton from '../../../public/assets/images/silex/button-fire.svg';
+import FireButton from '/assets/images/silex/button-fire.svg';
 import { useAuth } from '../../hooks/useAuth';
 import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect } from 'react';
@@ -76,9 +76,9 @@ const Home = () => {
 			<Header showMenu={showMenu} />
 			{/* IMAGE */}
 			<StyledImgHome
-				srcSet='../../../public/assets/images/silex/photo-body-mobile-fix.png 768w, ../../../public/assets/images/silex/photo-body.png 1024w'
+				srcSet='/assets/images/silex/photo-body-mobile-fix.png 768w, /assets/images/silex/photo-body.png 1024w'
 				sizes='(max-width: 768px) 50vw, 100vw'
-				src='../../../public/assets/images/silex/photo-body-mobile-fix.png'
+				src='/assets/images/silex/photo-body-mobile-fix.png'
 				alt='img home'
 			/>
 

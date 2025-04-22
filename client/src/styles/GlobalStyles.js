@@ -53,6 +53,10 @@ export const GlobalStyles = createGlobalStyle`
     } 
 
     .cursor {
+        display: none;
+
+    	@media screen and (min-width: 768px) {
+    display: block;
     position: fixed;
     width: 35px; 
     height: 35px; 
@@ -63,6 +67,10 @@ export const GlobalStyles = createGlobalStyle`
     transform: translate(-50%, -50%); /* Centra el círculo en el cursor */
     z-index: 9999; 
     transition: transform 0.1s ease-out
+	}
   }
 
+  video {
+    pointer-events: none;
+  }
 `;

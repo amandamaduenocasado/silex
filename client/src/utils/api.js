@@ -1,5 +1,4 @@
 const URL = import.meta.env.VITE_API_URL;
-//const URL = 'https://dusty-bunny-server.onrender.com';
 const API_URL = '/api/users/';
 const API_PRODUCTS_URL = '/silex/';
 const API_ORDERS_URL = '/api/orders/';
@@ -81,8 +80,21 @@ const updateDataById = async (id, newUser) => {
 
 const getAllProducts = async () => {
 	const response = await fetch(URL + API_PRODUCTS_URL);
-	const data = await response.json();
-	return data;
+
+	if (!response.ok) {
+		// Si la respuesta no es exitosa, muestra un error
+		console.error('Error fetching products:', response.status);
+		return []; // Retorna un arreglo vacío si la respuesta es errónea
+	}
+
+	try {
+		const data = await response.json(); // Intenta parsear la respuesta
+		return data;
+	} catch (error) {
+		// Si ocurre un error al parsear el JSON, lo mostramos en consola
+		console.error('Error parsing JSON:', error);
+		return []; // Devuelve un arreglo vacío si hay un error en el JSON
+	}
 };
 
 const findProduct = async id => {
