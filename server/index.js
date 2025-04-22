@@ -9,7 +9,7 @@ const usersRoutes = require("./src/routes/users.routes");
 const ordersRoutes = require("./src/routes/orders.routes");
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Especificamos el origen exacto
+  origin: "*", // Especificamos el origen exacto cuando sea el momento
   methods: ["GET", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // <- Esto es clave si usas cookies o headers especiales

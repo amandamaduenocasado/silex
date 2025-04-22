@@ -11,8 +11,8 @@ const StyledFireButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 6rem;
-	height: 6rem;
+	width: 6.8rem;
+	height: 6.8rem;
 	transition: transform 0.1s ease-in-out;
 	z-index: 100000;
 

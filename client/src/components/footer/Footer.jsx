@@ -51,9 +51,7 @@ const Footer = () => {
 					</StyledGrid>
 
 					<StyledLogoFooter
-						srcSet='/assets/images/silex/logo-silex-2025-s-black.png 768w, /assets/images/silex/logo-silex-2025-black.png 1024w'
-						sizes='(max-width: 1024px) 50vw, 100vw'
-						src='/assets/images/silex/logo-silex-2025-black.png'
+						srcSet='/assets/images/silex/logo-silex-2025-s-black.png'
 						alt='logo silex'
 					/>
 				</>
