@@ -14,7 +14,7 @@ const silexData = require("./src/data/silexs.json");
 
 // CORS
 const corsOptions = {
-  origin: "*",
+  origin: process.env.CORS_ORIGIN,
   methods: ["GET", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
