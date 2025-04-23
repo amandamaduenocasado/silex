@@ -14,12 +14,13 @@ const silexData = require("./src/data/silexs.json");
 
 // CORS
 const corsOptions = {
-  origin: "https://silex-cosmetics.vercel.app",
+  origin: process.env.CORS_ORIGIN,
   methods: ["GET", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
+console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/silex", silexRoutes);
