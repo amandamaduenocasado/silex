@@ -24,6 +24,7 @@ const StyledPlus = styled.img`
 	width: 2.5rem;
 	height: 2.5rem;
 	cursor: pointer;
+	z-index: 10000;
 
 	@media screen and (width>=1024px) {
 		display: none;
