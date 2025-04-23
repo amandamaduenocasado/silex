@@ -202,7 +202,7 @@ const StyledVideoLogo = styled.div`
 		display: flex;
 		flex-direction: row;
 		animation: slideLogos 10s linear infinite;
-		gap: 2.5rem;
+		gap: 1rem;
 		margin-bottom: 5rem;
 	}
 
