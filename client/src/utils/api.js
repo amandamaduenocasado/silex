@@ -1,6 +1,6 @@
 const URL = import.meta.env.VITE_API_URL;
 const API_URL = '/api/users/';
-const API_PRODUCTS_URL = '/silex/';
+const API_PRODUCTS_URL = '/api/silex/';
 const API_ORDERS_URL = '/api/orders/';
 const API_USER_ORDERS_URL = '/api/orders/user/';
 
