@@ -101,6 +101,8 @@ const StyledButton = styled.input`
 	cursor: pointer;
 	margin-top: 1rem;
 	margin-bottom: 7rem;
+	all: unset;
+	display: inline-block;
 
 	@media (hover: hover) {
 		&:hover {
