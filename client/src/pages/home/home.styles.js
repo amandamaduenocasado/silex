@@ -15,8 +15,8 @@ const StyledButtonsContainer = styled.div`
 
 const StyledButton = styled.button`
 	position: fixed;
-	bottom: 0.2rem;
-	right: 0.2rem;
+	bottom: 0.1rem;
+	right: 0.1rem;
 	z-index: 10;
 	background: none;
 	border: none;
@@ -24,8 +24,8 @@ const StyledButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 8rem;
-	height: 8rem;
+	width: 7.7rem;
+	height: 7.7rem;
 	transition: transform 0.1s ease-in-out;
 
 	&:active {

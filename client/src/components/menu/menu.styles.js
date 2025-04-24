@@ -15,6 +15,7 @@ const StyledMenu = styled.div`
 		$menuOpen ? 'translateX(0)' : 'translateX(-120%)'};
 
 	@media screen and (min-width: 1024px) {
+		left: 0.3rem;
 		overflow-y: hidden; /* Oculta la barrita */
 		bottom: 0;
 		top: auto;

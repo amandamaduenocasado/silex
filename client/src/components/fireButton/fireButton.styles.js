@@ -11,8 +11,8 @@ const StyledFireButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 6.8rem;
-	height: 6.8rem;
+	width: 7.7rem;
+	height: 7.7rem;
 	transition: transform 0.1s ease-in-out;
 	z-index: 100000;
 
@@ -27,13 +27,14 @@ const StyledFireButton = styled.button`
 	}
 
 	@media screen and (min-width: 768px) {
-		width: 7rem;
-		height: 7rem;
+		width: 8.3rem;
+		height: 8.3rem;
+		bottom: 0.05rem;
 	}
 
 	@media screen and (min-width: 1024px) {
-		width: 8.9rem;
-		height: 8.9rem;
+		width: 10.3rem;
+		height: 10.3rem;
 	}
 `;
 
