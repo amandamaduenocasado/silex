@@ -29,7 +29,7 @@ const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
 	padding-left: 0.3rem;
-	padding-top: 1.3rem;
+
 	gap: 0.4rem;
 
 	@media screen and (width >= 1024px) {

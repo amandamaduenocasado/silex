@@ -44,9 +44,9 @@ const StyledButton = styled.button`
 		bottom: 0.05rem;
 	}
 
-	@media screen and (min-width: 2160px) {
-		width: 12rem;
-		height: 12rem;
+	@media screen and (min-width: 1600px) {
+		width: 10.3rem;
+		height: 10.3rem;
 	}
 `;
 
