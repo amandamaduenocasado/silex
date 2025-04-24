@@ -16,7 +16,6 @@ import {
 	StyledRequired,
 	StyledLogoRegister,
 } from './register.styles';
-import FireButton from '../../components/fireButton/FireButton';
 
 import { useForm } from 'react-hook-form';
 
@@ -30,7 +29,6 @@ const Register = () => {
 	const errorMessage = '*This field is required';
 	return (
 		<StyledMain>
-			<FireButton />
 			<Link to='/'>
 				<StyledLogoRegister
 					srcSet='/assets/images/silex/logo-silex-2025-s.png 768w, /assets/images/silex/logo-silex-2025-s.png 1024w'

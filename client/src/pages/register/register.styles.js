@@ -98,6 +98,9 @@ const StyledButton = styled.button`
 	cursor: pointer;
 	margin-top: 1rem;
 	margin-bottom: 7rem;
+	-webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit (Chrome/Safari) */
+	-moz-appearance: none; /* Desactiva el estilo predeterminado en Firefox */
+	appearance: none; /* Desactiva el estilo predeterminado en otros navegadores */
 
 	@media (hover: hover) {
 		&:hover {

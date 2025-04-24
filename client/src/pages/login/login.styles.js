@@ -102,6 +102,9 @@ const StyledButton = styled.button`
 	padding-inline: 0.5rem;
 	cursor: pointer;
 	margin-bottom: 1rem;
+	-webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit (Chrome/Safari) */
+	-moz-appearance: none; /* Desactiva el estilo predeterminado en Firefox */
+	appearance: none; /* Desactiva el estilo predeterminado en otros navegadores */
 
 	@media (hover: hover) {
 		&:hover {
