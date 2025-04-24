@@ -1,8 +1,8 @@
 import { useAuth } from '../../hooks/useAuth';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../config/firebase.config';
+// import { signOut } from 'firebase/auth';
+// import { auth } from '../../config/firebase.config';
 import {
-	StyledLogOutButton,
+	// StyledLogOutButton,
 	StyledMenu,
 	StyledNavLink,
 	StyledUl,
@@ -14,14 +14,14 @@ const Menu = ({ showMenuAndButton, menuOpen }) => {
 	// Si showMenuAndButton es false y no está abierto el menú, no renderizamos el menú
 	if (!showMenuAndButton && !menuOpen) return null;
 
-	const logout = async () => {
-		try {
-			await signOut(auth);
-			console.log('User logged out successfully');
-		} catch (error) {
-			console.error('Error logging out:', error);
-		}
-	};
+	// const logout = async () => {
+	// 	try {
+	// 		await signOut(auth);
+	// 		console.log('User logged out successfully');
+	// 	} catch (error) {
+	// 		console.error('Error logging out:', error);
+	// 	}
+	// };
 
 	return (
 		<StyledMenu $menuOpen={menuOpen}>
@@ -33,11 +33,11 @@ const Menu = ({ showMenuAndButton, menuOpen }) => {
 
 					{user && <StyledNavLink to='/profile'>MY PROFILE</StyledNavLink>}
 
-					{user && (
+					{/* {user && (
 						<StyledLogOutButton onClick={logout}>
 							<StyledNavLink to={'/'}>LOG OUT</StyledNavLink>
 						</StyledLogOutButton>
-					)}
+					)} */}
 				</StyledUl>
 			</nav>
 		</StyledMenu>

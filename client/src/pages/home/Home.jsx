@@ -21,13 +21,11 @@ import FireButton from '/assets/images/silex/button-fire.svg';
 import { useAuth } from '../../hooks/useAuth';
 import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect } from 'react';
-import Header from '../../components/header/Header';
 
 const Home = () => {
 	const { user } = useAuth();
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-	const [showMenu, setShowMenu] = useState(true);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -38,26 +36,6 @@ const Home = () => {
 		return () => {
 			window.removeEventListener('resize', handleResize);
 		};
-	}, []);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			const footer = document.querySelector('footer');
-			if (footer) {
-				const footerRect = footer.getBoundingClientRect();
-				const windowHeight = window.innerHeight;
-
-				// Cuando el footer esté completamente visible, ocultamos el menú
-				if (footerRect.top <= windowHeight && footerRect.bottom >= 0) {
-					setShowMenu(false);
-				} else {
-					setShowMenu(true);
-				}
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
 	useEffect(() => {
@@ -72,8 +50,6 @@ const Home = () => {
 
 	return (
 		<StyledMain>
-			{/* Header con el botón de menú */}
-			<Header showMenu={showMenu} />
 			{/* IMAGE */}
 			<StyledImgHome
 				srcSet='/assets/images/silex/photo-body-mobile-fix.jpg 768w, /assets/images/silex/photo-body.jpg 1024w'

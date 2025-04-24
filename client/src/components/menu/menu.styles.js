@@ -5,15 +5,14 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 46rem;
-	left: 0;
+	bottom: 0.6rem;
+	left: 0.6rem;
 	width: auto;
 	z-index: 10;
 	max-height: 80vh;
-
 	transition: transform 0.3s ease-in-out; /* Suaviza la apertura del menú */
 	transform: ${({ $menuOpen }) =>
-		$menuOpen ? 'translateX(0)' : 'translateX(-100%)'};
+		$menuOpen ? 'translateX(0)' : 'translateX(-120%)'};
 
 	@media screen and (min-width: 1024px) {
 		overflow-y: hidden; /* Oculta la barrita */
@@ -28,8 +27,6 @@ const StyledMenu = styled.div`
 const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
-	padding-left: 0.3rem;
-
 	gap: 0.4rem;
 
 	@media screen and (width >= 1024px) {
@@ -70,29 +67,29 @@ const StyledNavLink = styled(NavLink)`
 	}
 `;
 
-const StyledLogOutButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 11.25rem;
-	height: 2.125rem;
-	border: 0.0625rem solid ${COLORS.dark};
-	background-color: ${COLORS.white};
-	border-radius: 0.5rem;
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.bold};
-	letter-spacing: 0;
-	padding: 1.5625rem;
-	margin: 1.5625rem;
-	cursor: pointer;
+// const StyledLogOutButton = styled.button`
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	max-width: 11.25rem;
+// 	height: 2.125rem;
+// 	border: 0.0625rem solid ${COLORS.dark};
+// 	background-color: ${COLORS.white};
+// 	border-radius: 0.5rem;
+// 	color: ${COLORS.dark};
+// 	font-weight: ${FONT_WEIGHT.bold};
+// 	letter-spacing: 0;
+// 	padding: 1.5625rem;
+// 	margin: 1.5625rem;
+// 	cursor: pointer;
 
-	@media (hover: hover) {
-		&:hover {
-			color: ${COLORS.white};
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-		}
-	}
-`;
+// 	@media (hover: hover) {
+// 		&:hover {
+// 			color: ${COLORS.white};
+// 			background-color: ${COLORS.deepViolet};
+// 			border: 0.0625rem solid ${COLORS.white};
+// 		}
+// 	}
+// `;
 
-export { StyledMenu, StyledUl, StyledNavLink, StyledLogOutButton };
+export { StyledMenu, StyledUl, StyledNavLink };
