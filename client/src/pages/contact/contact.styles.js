@@ -14,6 +14,7 @@ const StyledBannerContact = styled.div`
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
+	pointer-events: none;
 
 	video {
 		position: absolute;
@@ -24,7 +25,6 @@ const StyledBannerContact = styled.div`
 		width: 100vw;
 		height: 100dvh;
 		display: block;
-		pointer-events: none;
 	}
 `;
 

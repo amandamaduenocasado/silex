@@ -29,6 +29,14 @@ const Layout = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	// Evita el pull-to-refresh en móviles (principalmente Chrome Android)
+	useEffect(() => {
+		document.body.style.overscrollBehavior = 'none';
+		return () => {
+			document.body.style.overscrollBehavior = 'auto';
+		};
+	}, []);
+
 	return (
 		<>
 			<Header showMenu={showMenu} />
