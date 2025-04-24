@@ -85,7 +85,7 @@ const StyledCheckbox = styled.input`
 	}
 `;
 
-const StyledButton = styled.input`
+const StyledButton = styled.button`
 	font-size: ${FONT_SIZE.xs};
 	display: flex;
 	align-items: center;

@@ -11,16 +11,13 @@ import {
 	StyledInput,
 	StyledInputAndTag,
 	StyledMain,
-	StyledPrivacy
+	StyledPrivacy,
 } from './login.styles';
-
-import FireButton from '../../components/fireButton/FireButton';
 
 const Login = () => {
 	const navigate = useNavigate();
 	return (
 		<StyledMain>
-			<FireButton />
 			<StyledContainer>
 				<StyledImg src='/assets/images/silex/mouth.png' alt='mouth' />
 				<StyledTitle>LOG IN</StyledTitle>
