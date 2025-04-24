@@ -73,5 +73,11 @@ export const GlobalStyles = createGlobalStyle`
   video {
     pointer-events: none;
   }
-
+/* 
+  button {    
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none;
+} */
+ 
 `;

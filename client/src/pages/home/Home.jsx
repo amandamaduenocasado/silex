@@ -13,19 +13,29 @@ import {
 	StyledImgHome,
 	StyledVideo,
 	StyledVideoLogo,
-	// StyledLogoHome,
 } from './home.styles';
 
 import { Link } from 'react-router-dom';
 import FireButton from '/assets/images/silex/button-fire.svg';
 import { useAuth } from '../../hooks/useAuth';
+import { PICTURES } from '../../constants/pictures-info';
 import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect } from 'react';
+import { useCart } from '../../hooks/useCart';
 
 const Home = () => {
 	const { user } = useAuth();
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+	const { addToCart, quantityToCard, cart } = useCart();
+
+	const handleAdd = product => {
+		if (product && product.id) {
+			addToCart(product);
+		} else {
+			console.error('El producto no es válido');
+		}
+	};
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -41,7 +51,7 @@ const Home = () => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentImageIndex(
-				prevIndex => (prevIndex + 1) % PRODUCTS.solar.length
+				prevIndex => (prevIndex + 1) % PICTURES.solar.length
 			);
 		}, 1500);
 
@@ -84,13 +94,14 @@ const Home = () => {
 					</p>
 					<p>This is the first step of your skincare routine</p>
 					<StyledCartAndPrice>
-						<StyledAddToCart>
-							<Link to={user ? '/cart' : '/redirect'}>
-								<img
-									src='/assets/images/silex/add-to-cart.svg'
-									alt='add to cart'
-								/>
-							</Link>
+						<StyledAddToCart onClick={() => handleAdd(PRODUCTS[0])}>
+							<img
+								src='/assets/images/silex/add-to-cart.svg'
+								alt='add to cart'
+							/>
+							{quantityToCard(PRODUCTS[0], cart) > 0 && (
+								<span>{quantityToCard(PRODUCTS[0], cart)}</span>
+							)}
 						</StyledAddToCart>
 						<StyledProductPrice>17.95€ 50 ML</StyledProductPrice>
 					</StyledCartAndPrice>
@@ -99,8 +110,8 @@ const Home = () => {
 				<StyledProductPhoto
 					src={
 						isMobile
-							? PRODUCTS.solar[currentImageIndex]
-							: PRODUCTS.solar[((currentImageIndex + 1) % 2) + 1]
+							? PICTURES.solar[currentImageIndex]
+							: PICTURES.solar[((currentImageIndex + 1) % 2) + 1]
 					}
 					alt='solar'
 					width={400}
@@ -120,13 +131,14 @@ const Home = () => {
 					</p>
 					<p>This is the second step of your skincare routine</p>
 					<StyledCartAndPrice>
-						<StyledAddToCart>
-							<Link to={user ? '/cart' : '/redirect'}>
-								<img
-									src='/assets/images/silex/add-to-cart.svg'
-									alt='add to cart'
-								/>
-							</Link>
+						<StyledAddToCart onClick={() => handleAdd(PRODUCTS[1])}>
+							<img
+								src='/assets/images/silex/add-to-cart.svg'
+								alt='add to cart'
+							/>
+							{quantityToCard(PRODUCTS[0], cart) > 0 && (
+								<span>{quantityToCard(PRODUCTS[1], cart)}</span>
+							)}
 						</StyledAddToCart>
 						<StyledProductPrice>20.95€ 50 ML</StyledProductPrice>
 					</StyledCartAndPrice>
@@ -135,8 +147,8 @@ const Home = () => {
 				<StyledProductPhoto
 					src={
 						isMobile
-							? PRODUCTS.cleanser[currentImageIndex]
-							: PRODUCTS.cleanser[((currentImageIndex + 1) % 2) + 1]
+							? PICTURES.cleanser[currentImageIndex]
+							: PICTURES.cleanser[((currentImageIndex + 1) % 2) + 1]
 					}
 					alt='cleanser'
 					width={400}
@@ -156,13 +168,14 @@ const Home = () => {
 					</p>
 					<p>This is the third step of your skincare routine</p>
 					<StyledCartAndPrice>
-						<StyledAddToCart>
-							<Link to={user ? '/cart' : '/redirect'}>
-								<img
-									src='/assets/images/silex/add-to-cart.svg'
-									alt='add to cart'
-								/>
-							</Link>
+						<StyledAddToCart onClick={() => handleAdd(PRODUCTS[3])}>
+							<img
+								src='/assets/images/silex/add-to-cart.svg'
+								alt='add to cart'
+							/>
+							{quantityToCard(PRODUCTS[3], cart) > 0 && (
+								<span>{quantityToCard(PRODUCTS[0], cart)}</span>
+							)}
 						</StyledAddToCart>
 						<StyledProductPrice>17.95€ 30 ML</StyledProductPrice>
 					</StyledCartAndPrice>
@@ -171,8 +184,8 @@ const Home = () => {
 				<StyledProductPhoto
 					src={
 						isMobile
-							? PRODUCTS.retinol[currentImageIndex]
-							: PRODUCTS.retinol[((currentImageIndex + 1) % 2) + 1]
+							? PICTURES.retinol[currentImageIndex]
+							: PICTURES.retinol[((currentImageIndex + 1) % 2) + 1]
 					}
 					alt='retinol'
 					width={400}

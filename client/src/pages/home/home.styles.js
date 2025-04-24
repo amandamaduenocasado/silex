@@ -71,8 +71,21 @@ const StyledAddToCart = styled.div`
 	height: auto;
 	cursor: pointer;
 
-	@media screen and (min-width: 1024px) {
-		width: rem;
+	/* Estilo para el contador */
+	span {
+		position: absolute;
+		top: -0.5rem;
+		right: -0.5rem;
+		background-color: #ff5733;
+		color: white;
+		border-radius: 50%;
+		width: 1.3rem;
+		height: 1.3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.8rem;
+		font-weight: bold;
 	}
 `;
 

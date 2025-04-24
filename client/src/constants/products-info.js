@@ -1,18 +1,37 @@
-export const PRODUCTS = {
-	solar: [
-		'/assets/images/silex/baby-bottle.png',
-		'/assets/images/silex/baby-reflect.jpg',
-		'/assets/images/silex/babies-close.jpg',
-	],
-	cleanser: [
-		'/assets/images/silex/mouth-bottle.png',
-		'/assets/images/silex/mouth-scene.jpg',
-		'/assets/images/silex/mouth-background.jpg',
-	],
+import { v4 } from 'uuid';
 
-	retinol: [
-		'/assets/images/silex/mantis-bottle.png',
-		'/assets/images/silex/mantis-scene.jpg',
-		'/assets/images/silex/mantis-scene-sideface.jpg',
-	],
-};
+export const PRODUCTS = [
+	{
+		id: v4(),
+		name: 'silex solar',
+		category: 'skin',
+		price: 17.95,
+		description:
+			'Facial sunscreen with an ultra-light texture and an aqueous external phase, leaving a silky finish.',
+		fav: 0,
+		ordered: 0,
+		vendor: '',
+	},
+	{
+		id: v4(),
+		name: 'silex cleanser',
+		category: 'skin',
+		price: 20.95,
+		description:
+			'Facial cleanser with an ultra-light texture and an aqueous external phase, leaving a silky finish',
+		fav: 0,
+		ordered: 0,
+		vendor: '',
+	},
+	{
+		id: v4(),
+		name: 'silex retinol',
+		category: 'skin',
+		price: 17.95,
+		description:
+			'Contains encapsulated retinol to help rejuvenate the skin. Free of fragrances and oils',
+		fav: 0,
+		ordered: 0,
+		vendor: '',
+	},
+];

@@ -171,7 +171,7 @@ const registerUser = async (data, navigate) => {
 			password
 		);
 		const newUser = {
-			_id: firebaseUser.user.uid,
+			id: firebaseUser.user.uid,
 			avatar: data.avatar,
 			name,
 			surname,

@@ -7,7 +7,7 @@ import {
 	StyledRequired,
 	StyledSelect,
 	StyledSubmit,
-	StyledTextInput
+	StyledTextInput,
 } from './contactForm.styles';
 
 const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
@@ -15,7 +15,7 @@ const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
 		reset,
 		register,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
 	} = useForm();
 	const [value, setValue] = useState('');
 	const [concern, setConcern] = useState('');
@@ -27,20 +27,20 @@ const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
 				cleanAll(reset, setValue, setConcern, setSubmitted, setTopValue)
 			)}
 		>
-			<label htmlFor='name'>Name & surname:</label>
+			<label htmlFor='name'>Name & surname</label>
 			<StyledInput
 				type='text'
 				{...register('name', { required: errorMessage })}
 				id='name'
 			/>
 			<StyledRequired>{errors?.name?.message}</StyledRequired>
-			<label htmlFor='email'>Email:</label>
+			<label htmlFor='email'>Email</label>
 			<StyledInput
 				{...register('email', { required: errorMessage })}
 				type='email'
 			/>
 			<StyledRequired>{errors?.email?.message}</StyledRequired>
-			<label htmlFor='type'>Type:</label>
+			<label htmlFor='type'>Type</label>
 			<StyledSelect
 				onChange={event => querieTypeSelect(event, setValue, topic, setConcern)}
 				value={value}

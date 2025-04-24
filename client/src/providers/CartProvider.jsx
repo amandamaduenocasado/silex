@@ -14,7 +14,7 @@ const CartProvider = ({ children }) => {
 	const incrementQuantity = item => {
 		setCart(
 			cart.map(product =>
-				product._id === item._id
+				product.id === item.id
 					? { ...product, quantity: product.quantity + 1 }
 					: product
 			)
@@ -25,7 +25,7 @@ const CartProvider = ({ children }) => {
 		setCart(
 			cart
 				.map(product => {
-					if (item._id === product._id && product.quantity >= 1) {
+					if (item.id === product.id && product.quantity >= 1) {
 						return { ...product, quantity: product.quantity - 1 };
 					}
 					return product;
@@ -35,15 +35,19 @@ const CartProvider = ({ children }) => {
 	};
 
 	const addToCart = item => {
-		setCart([...cart, { ...item, quantity: 1 }]);
+		if (item && item.id) {
+			setCart([...cart, { ...item, quantity: 1 }]);
+		} else {
+			console.error('El producto no es válido para añadir al carrito');
+		}
 	};
 
 	const deleteFromCart = item => {
-		setCart(cart.filter(product => product._id !== item._id));
+		setCart(cart.filter(product => product.id !== item.id));
 	};
 
 	const quantityToCard = (item, cart) => {
-		const product = cart.find(product => product._id === item._id);
+		const product = cart.find(product => product.id === item.id);
 		return product ? product.quantity : 0;
 	};
 

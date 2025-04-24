@@ -5,11 +5,11 @@ const StyledCheckOut = styled.div`
 	top: 0;
 	left: 0;
 	display: flex;
-	width: 100vw;
-	height: 100vh;
 	align-items: center;
 	justify-content: center;
-	background-color: rgb(176 135 233 / 0.4);
+	width: 100vw;
+	height: 100vh;
+	background-color: blue;
 	backdrop-filter: blur(5px);
 	z-index: 100;
 `;
