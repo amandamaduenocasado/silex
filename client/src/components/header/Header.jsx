@@ -8,6 +8,17 @@ const Header = ({ showMenu, onCartClick }) => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const location = useLocation();
 
+	// Rutas donde NO se muestra el Header
+
+	const hideHeaderOnPaths = [
+		'/login',
+		'/register',
+		'/redirect',
+		'/cart',
+		'/contact',
+	];
+	if (hideHeaderOnPaths.includes(location.pathname)) return null;
+
 	// Solo muestra el logo en ciertas páginas
 	const showLogo =
 		location.pathname === '/login' ||

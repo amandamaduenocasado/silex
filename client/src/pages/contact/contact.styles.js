@@ -24,6 +24,7 @@ const StyledBannerContact = styled.div`
 		width: 100vw;
 		height: 100dvh;
 		display: block;
+		pointer-events: none;
 	}
 `;
 
