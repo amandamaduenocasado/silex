@@ -27,7 +27,7 @@ const AboutUs = () => {
 						Silex is a new Spanish cosmetic brand built on quality and honesty
 					</StyledAboutInfo>
 					<StyledAboutImg
-						src='/assets/images/silex/skin-photo.png'
+						src='/assets/images/silex/skin-photo.jpg'
 						alt='skin'
 					/>
 					<StyledAboutInfo>
@@ -66,7 +66,7 @@ const AboutUs = () => {
 						</StyledAboutQuote>
 					</StyledAboutQuoteContainer>
 					<StyledAboutImg
-						src='/assets/images/silex/photo-beach.png'
+						src='/assets/images/silex/photo-beach.jpg'
 						alt='beach'
 					/>
 				</StyledHistory>
@@ -75,7 +75,7 @@ const AboutUs = () => {
 				<StyledDreamin>
 					<StyledAboutTitle>Dreamin Kit</StyledAboutTitle>
 					<StyledAboutImg
-						src='/assets/images/silex/photo-lemon.png'
+						src='/assets/images/silex/photo-lemon.jpg'
 						alt='lemon'
 					/>
 					<StyledAboutInfo>

@@ -76,7 +76,7 @@ const Home = () => {
 			<Header showMenu={showMenu} />
 			{/* IMAGE */}
 			<StyledImgHome
-				srcSet='/assets/images/silex/photo-body-mobile-fix.png 768w, /assets/images/silex/photo-body.png 1024w'
+				srcSet='/assets/images/silex/photo-body-mobile-fix.jpg 768w, /assets/images/silex/photo-body.jpg 1024w'
 				sizes='(max-width: 768px) 50vw, 100vw'
 				src='/assets/images/silex/photo-body-mobile-fix.png'
 				alt='img home'
