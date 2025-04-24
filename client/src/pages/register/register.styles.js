@@ -7,6 +7,7 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem; /* hueco entre logo y margen superior */
+	padding-top: 3rem;
 `;
 
 const StyledContainer = styled.div`
