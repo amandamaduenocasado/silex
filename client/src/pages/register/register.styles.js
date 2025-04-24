@@ -73,9 +73,6 @@ const StyledCheckbox = styled.input`
 	height: 2rem;
 	border: 0.05rem solid ${COLORS.dark};
 	border-radius: 0;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
 
 	&:checked {
 		background-color: ${COLORS.white};
@@ -101,8 +98,6 @@ const StyledButton = styled.input`
 	cursor: pointer;
 	margin-top: 1rem;
 	margin-bottom: 7rem;
-	all: unset;
-	display: inline-block;
 
 	@media (hover: hover) {
 		&:hover {

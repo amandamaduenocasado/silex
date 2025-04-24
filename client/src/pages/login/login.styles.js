@@ -90,7 +90,7 @@ const StyledInput = styled.input`
 	}
 `;
 
-const StyledButton = styled.input`
+const StyledButton = styled.button`
 	font-size: ${FONT_SIZE.xs};
 	display: flex;
 	align-items: center;
@@ -102,8 +102,6 @@ const StyledButton = styled.input`
 	padding-inline: 0.5rem;
 	cursor: pointer;
 	margin-bottom: 1rem;
-	all: unset;
-	display: inline-block;
 
 	@media (hover: hover) {
 		&:hover {

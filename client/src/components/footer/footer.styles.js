@@ -52,6 +52,7 @@ const StyledVideoFooter = styled.div`
 		height: auto;
 		border-radius: 2%;
 		pointer-events: none;
+		z-index: -1;
 	}
 `;
 

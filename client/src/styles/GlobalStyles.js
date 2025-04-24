@@ -53,9 +53,9 @@ export const GlobalStyles = createGlobalStyle`
     } 
 
     .cursor {
-        display: none;
+     display: none;
 
-    	@media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
     display: block;
     position: fixed;
     width: 35px; 
@@ -72,5 +72,11 @@ export const GlobalStyles = createGlobalStyle`
 
   video {
     pointer-events: none;
+  }
+
+  button {
+    -webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit (Chrome/Safari) */
+    -moz-appearance: none;    /* Desactiva el estilo predeterminado en Firefox */
+    appearance: none;         /* Desactiva el estilo predeterminado en otros navegadores */
   }
 `;
