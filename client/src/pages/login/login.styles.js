@@ -92,8 +92,9 @@ const StyledInput = styled.input`
 
 const StyledButton = styled.button`
 	font-size: ${FONT_SIZE.xs};
-	display: flex;
+	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	height: 2.5rem;
 	background-color: ${COLORS.softLime};
 	border-radius: 0.2rem;
@@ -102,9 +103,6 @@ const StyledButton = styled.button`
 	padding-inline: 0.5rem;
 	cursor: pointer;
 	margin-bottom: 1rem;
-	-webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit (Chrome/Safari) */
-	-moz-appearance: none; /* Desactiva el estilo predeterminado en Firefox */
-	appearance: none; /* Desactiva el estilo predeterminado en otros navegadores */
 
 	@media (hover: hover) {
 		&:hover {

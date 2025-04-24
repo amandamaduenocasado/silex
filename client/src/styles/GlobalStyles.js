@@ -74,9 +74,4 @@ export const GlobalStyles = createGlobalStyle`
     pointer-events: none;
   }
 
-  button {
-    -webkit-appearance: none; /* Desactiva el estilo predeterminado en Webkit (Chrome/Safari) */
-    -moz-appearance: none;    /* Desactiva el estilo predeterminado en Firefox */
-    appearance: none;         /* Desactiva el estilo predeterminado en otros navegadores */
-  }
 `;
