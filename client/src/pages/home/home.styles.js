@@ -24,8 +24,8 @@ const StyledButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 7rem;
-	height: 7rem;
+	width: 8rem;
+	height: 8rem;
 	transition: transform 0.1s ease-in-out;
 
 	&:active {

@@ -5,8 +5,8 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	bottom: 0.6rem;
-	left: 0.6rem;
+	bottom: 1rem;
+	left: 1rem;
 	width: auto;
 	z-index: 10;
 	max-height: 80vh;
