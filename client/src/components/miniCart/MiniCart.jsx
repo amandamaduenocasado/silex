@@ -10,15 +10,15 @@ import {
 	StyledProductMini,
 	StyledCheckOut,
 	StyledTaxes,
+	StyledProductAdd,
 } from './miniCart.styles';
 import { Link } from 'react-router-dom';
 
 const MiniCart = ({ onClose }) => {
-	// Añadimos un estado para gestionar el cierre y activar la animación fadeOut
 	const [isClosing, setIsClosing] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		// Si el carrito se cierra, activamos la animación fadeOut
 		const timeout = setTimeout(() => {
 			setIsClosing(true);
 			setTimeout(onClose, 3000); // Cerramos el carrito después de la animación
@@ -27,30 +27,50 @@ const MiniCart = ({ onClose }) => {
 		return () => clearTimeout(timeout);
 	}, [onClose]);
 
+	// Detectamos si estamos en una pantalla móvil
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth <= 768) {
+				setIsMobile(true); // Activamos el modo móvil si la pantalla es pequeña
+			} else {
+				setIsMobile(false); // Si la pantalla es grande, volvemos al formato normal
+			}
+		};
+
+		handleResize(); // Revisamos el tamaño inicial
+		window.addEventListener('resize', handleResize); // Recalculamos cuando la ventana cambie de tamaño
+
+		return () => window.removeEventListener('resize', handleResize); // Limpiamos el event listener
+	}, []);
+
 	const { cart } = useContext(CartContext);
 
 	return (
 		<StyledMiniCartContainer isClosing={isClosing}>
 			<StyledCloseButton onClick={onClose}>x</StyledCloseButton>
-			{cart.length === 0 ? (
+			{isMobile ? (
+				<StyledProductAdd>Producto añadido</StyledProductAdd> // En móvil solo mostramos el mensaje
+			) : cart.length === 0 ? (
 				<p>El carrito está vacío</p>
 			) : (
 				cart.map(item => (
 					<StyledMiniCartItem key={item.id}>
 						<StyledProductMini src={item.miniature} />
 						<StyledNameMini>{item.name}</StyledNameMini>
-						<StyledQuantityMini>{item.quantity}</StyledQuantityMini>
+						<StyledQuantityMini>x{item.quantity}</StyledQuantityMini>
 					</StyledMiniCartItem>
 				))
 			)}
-			<StyledCheckOut>
-				<StyledTaxes>
-					Taxes included. Discount and shipping calculated at checkout
-				</StyledTaxes>
-				<Link to='/cart'>
-					<StyledButtonMini>Continue</StyledButtonMini>
-				</Link>
-			</StyledCheckOut>
+			{!isMobile && (
+				<StyledCheckOut>
+					<StyledTaxes>
+						Taxes included. Discount and shipping calculated at checkout
+					</StyledTaxes>
+					<Link to='/cart'>
+						<StyledButtonMini>Continue</StyledButtonMini>
+					</Link>
+				</StyledCheckOut>
+			)}
 		</StyledMiniCartContainer>
 	);
 };

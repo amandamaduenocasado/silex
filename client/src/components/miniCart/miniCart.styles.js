@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
 
+const StyledProductAdd = styled.div`
+	font-size: 0.8rem; /* Hacemos el texto más pequeño */
+`;
+
 const StyledMiniCartContainer = styled.div`
 	position: fixed;
-	width: 35vw;
-	height: 75vh;
+	width: 10rem;
+	height: 3rem;
 	top: 0.5rem;
 	right: 0.5rem;
-	background-color: white;
-	padding: 3rem;
-	padding-top: 4rem;
+	background-color: yellow;
+	padding: 1rem;
 	border-radius: 3px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 	z-index: 1000;
@@ -29,6 +32,17 @@ const StyledMiniCartContainer = styled.div`
 		}
 	}
 
+	@media screen and (min-width: 768px) {
+		width: 35vw;
+		height: 75vh;
+		top: 0.5rem;
+		right: 0.5rem;
+		padding: 3rem;
+		padding-top: 4rem;
+		border-radius: 3px;
+		background-color: yellow;
+	}
+
 	@keyframes fadeOut {
 		from {
 			opacity: 1;
@@ -42,19 +56,22 @@ const StyledMiniCartContainer = styled.div`
 `;
 
 const StyledMiniCartItem = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
+
+	@media screen and (min-width: 768px) {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 2rem;
+	}
 `;
 
 const StyledCloseButton = styled.button`
-	position: absolute;
-	top: 15px;
-	right: 15px;
 	background: none;
 	border: none;
-	font-size: 1.3rem;
+	position: absolute;
+	top: 12px;
+	right: 10px;
 	cursor: pointer;
 	color: #888;
 	transition: color 0.2s ease;
@@ -63,36 +80,46 @@ const StyledCloseButton = styled.button`
 	&:hover {
 		color: #000;
 	}
+
+	@media screen and (min-width: 768px) {
+		background: none;
+		border: none;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		cursor: pointer;
+		color: #888;
+		transition: color 0.2s ease;
+		text-decoration: none;
+	}
 `;
 
 const StyledCheckOut = styled.div`
 	display: flex;
 	gap: 5rem;
 `;
+
 const StyledButtonMini = styled.button`
 	background-color: white;
 	color: ${COLORS.dark};
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-
-	/* &:hover {
-		background-color: #555;
-	} */
 `;
+
 const StyledTaxes = styled.span`
 	font-size: 0.7rem;
 `;
 
 const StyledQuantityMini = styled.span`
-	flex-shrink: 0; /* Evita que el texto de la cantidad se comprima */
-	align-self: flex-start; /* Alinea la cantidad al borde superior de la imagen */
+	flex-shrink: 0;
+	align-self: flex-start;
 	font-size: 0.8rem;
 `;
 
 const StyledNameMini = styled.span`
 	display: inline-block;
-	flex-grow: 1; /* Hace que el nombre ocupe todo el espacio disponible entre la foto y la cantidad */
+	flex-grow: 1;
 	align-self: flex-start;
 	font-size: 0.8rem;
 `;
@@ -115,4 +142,5 @@ export {
 	StyledProductMini,
 	StyledCheckOut,
 	StyledTaxes,
+	StyledProductAdd,
 };
