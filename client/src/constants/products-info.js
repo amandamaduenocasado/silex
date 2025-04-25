@@ -11,6 +11,7 @@ export const PRODUCTS = [
 			'Immediate absorption. It melts into the skin and provides deep cleansing. Hydrates the skin and offers antioxidant action',
 		minidescription: 'This is the first step of your skincare routine',
 		price: '17.95€ 50 ML',
+		miniature: '/assets/images/silex/miniature-baby.png',
 	},
 	{
 		id: v4(),
@@ -22,6 +23,7 @@ export const PRODUCTS = [
 			'Immediate absorption.It melts into the skin and provides deep cleansing. Hydrates the skin and offers antioxidant action',
 		minidescription: 'This is the second step of your skincare routine',
 		price: '20.95€ 75 ML',
+		miniature: '/assets/images/silex/mouth-bottle.png',
 	},
 	{
 		id: v4(),
@@ -33,5 +35,6 @@ export const PRODUCTS = [
 			'Formulated with niacinamide, hyaluronic acid, and three essential ceramides',
 		minidescription: 'This is the third step of your skincare routine',
 		price: '17.95€ 30 ML',
+		miniature: '/assets/images/silex/mantis-bottle.png',
 	},
 ];

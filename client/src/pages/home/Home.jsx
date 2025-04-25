@@ -23,6 +23,7 @@ import { PICTURES } from '../../constants/pictures-info';
 import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
+import MiniCart from '../../components/miniCart/MiniCart';
 
 const productImages = [PICTURES.solar, PICTURES.cleanser, PICTURES.retinol];
 
@@ -32,6 +33,11 @@ const Home = () => {
 		useContext(CartContext);
 	const [imageIndexes, setImageIndexes] = useState([0, 0, 0]);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+	const [showCart, setShowCart] = useState(false);
+
+	const handleCloseCart = () => {
+		setShowCart(false);
+	};
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -73,6 +79,10 @@ const Home = () => {
 					</Link>
 				</StyledButtonsContainer>
 			)}
+
+			{/* MINICART ABRIR CERRAR */}
+			{showCart && <MiniCart cart={cart} onClose={handleCloseCart} />}
+
 			<StyledProductsContainer>
 				{PRODUCTS.map((product, index) => {
 					const productInCart = cart.find(item => item.id === product.id);
@@ -91,7 +101,12 @@ const Home = () => {
 
 									{/* Lógica de carrito */}
 									{!productInCart ? (
-										<StyledAddToCart onClick={() => addToCart(product)}>
+										<StyledAddToCart
+											onClick={() => {
+												addToCart(product);
+												setShowCart(true);
+											}}
+										>
 											<img
 												src='/assets/images/silex/add-to-cart.png'
 												alt='add to cart'
@@ -99,13 +114,23 @@ const Home = () => {
 										</StyledAddToCart>
 									) : (
 										<StyledQuantityButton>
-											<StyledQuantity onClick={() => decrementItem(product)}>
+											<StyledQuantity
+												onClick={() => {
+													decrementItem(product);
+													setShowCart(true);
+												}}
+											>
 												-
 											</StyledQuantity>
 											<StyledQuantityDisplay>
 												{productInCart.quantity}
 											</StyledQuantityDisplay>
-											<StyledQuantity onClick={() => incrementItem(product)}>
+											<StyledQuantity
+												onClick={() => {
+													incrementItem(product);
+													setShowCart(true);
+												}}
+											>
 												+
 											</StyledQuantity>
 										</StyledQuantityButton>

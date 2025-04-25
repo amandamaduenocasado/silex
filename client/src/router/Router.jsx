@@ -9,6 +9,7 @@ import ProtectedUserRoute from './ProtectedUserRoutes';
 import ProtectedRoute from './ProtectedRoutes';
 import AboutUs from '../pages/aboutUs/AboutUs';
 import Contact from '../pages/contact/Contact';
+import CartPage from '../pages/cartPage/CartPage';
 
 const Router = () => {
 	return (
@@ -16,6 +17,7 @@ const Router = () => {
 			<Route path='/' element={<Layout />}>
 				<Route index element={<Home />} />
 				<Route path='/redirect' element={<Redirect />} />
+				<Route path='/cart' element={<CartPage />} />
 				<Route path='/register' element={<Register />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/about' element={<AboutUs />} />
