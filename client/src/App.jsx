@@ -3,7 +3,6 @@ import CartProvider from './providers/CartProvider';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Router from './router/Router';
 import AuthProvider from './providers/AuthProvider';
-import ProductsProvider from './providers/ProductsProvider';
 import useCursorTracking from './hooks/useCursorTracking';
 
 const App = () => {
@@ -14,11 +13,9 @@ const App = () => {
 			<GlobalStyles />
 			<BrowserRouter>
 				<AuthProvider>
-					<ProductsProvider>
-						<CartProvider>
-							<Router />
-						</CartProvider>
-					</ProductsProvider>
+					<CartProvider>
+						<Router />
+					</CartProvider>
 				</AuthProvider>
 			</BrowserRouter>
 		</>

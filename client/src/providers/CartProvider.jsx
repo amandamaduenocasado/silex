@@ -1,76 +1,53 @@
-import { useEffect, useState } from 'react';
-import { CartContext } from '../contexts/CartContext';
+import { useState, createContext } from 'react';
 
-const CartProvider = ({ children }) => {
-	const [cart, setCart] = useState(() => {
-		const storageCart = localStorage.getItem('cart');
-		return storageCart ? JSON.parse(storageCart) : [];
-	});
+// Crear el contexto del carrito
+export const CartContext = createContext();
 
-	useEffect(() => {
-		localStorage.setItem('cart', JSON.stringify(cart));
-	}, [cart]);
+// Proveedor del carrito
+export const CartProvider = ({ children }) => {
+	const [cart, setCart] = useState([]);
 
-	const incrementQuantity = item => {
+	const addToCart = product => {
+		// Verificar si el producto ya existe en el carrito
+		const existingProduct = cart.find(item => item.id === product.id);
+		if (existingProduct) {
+			// Si existe, incrementamos su cantidad
+			setCart(
+				cart.map(item =>
+					item.id === product.id
+						? { ...item, quantity: item.quantity + 1 }
+						: item
+				)
+			);
+		} else {
+			// Si no existe, lo añadimos al carrito
+			setCart([...cart, { ...product, quantity: 1 }]);
+		}
+	};
+
+	const incrementItem = product => {
 		setCart(
-			cart.map(product =>
-				product.id === item.id
-					? { ...product, quantity: product.quantity + 1 }
-					: product
+			cart.map(item =>
+				item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
 			)
 		);
 	};
 
-	const decrementQuantity = item => {
+	const decrementItem = product => {
 		setCart(
 			cart
-				.map(product => {
-					if (item.id === product.id && product.quantity >= 1) {
-						return { ...product, quantity: product.quantity - 1 };
-					}
-					return product;
-				})
-				.filter(product => product.quantity > 0)
+				.map(item =>
+					item.id === product.id && item.quantity > 1
+						? { ...item, quantity: item.quantity - 1 }
+						: item
+				)
+				.filter(item => item.quantity > 0)
 		);
 	};
 
-	const addToCart = item => {
-		if (item && item.id) {
-			setCart([...cart, { ...item, quantity: 1 }]);
-		} else {
-			console.error('El producto no es válido para añadir al carrito');
-		}
-	};
-
-	const deleteFromCart = item => {
-		setCart(cart.filter(product => product.id !== item.id));
-	};
-
-	const quantityToCard = (item, cart) => {
-		const product = cart.find(product => product.id === item.id);
-		return product ? product.quantity : 0;
-	};
-
-	const totalPrice = cart.reduce(
-		(acc, item) => acc + item.price * item.quantity,
-		0
-	);
-
-	const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-
 	return (
 		<CartContext.Provider
-			value={{
-				cart,
-				setCart,
-				incrementQuantity,
-				decrementQuantity,
-				addToCart,
-				deleteFromCart,
-				quantityToCard,
-				totalPrice,
-				totalQuantity,
-			}}
+			value={{ cart, addToCart, incrementItem, decrementItem }}
 		>
 			{children}
 		</CartContext.Provider>

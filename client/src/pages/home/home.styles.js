@@ -1,9 +1,20 @@
 import styled from 'styled-components';
-import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
+import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
+`;
+
+const StyledImgHome = styled.img`
+	width: 100%;
+	height: 100vh;
+	position: relative;
+
+	@media screen and (min-width: 1024px) {
+		margin-bottom: 8rem;
+	}
 `;
 
 const StyledButtonsContainer = styled.div`
@@ -50,45 +61,12 @@ const StyledButton = styled.button`
 	}
 `;
 
-const StyledCartAndPrice = styled.div`
-	display: flex;
-	flex-direction: row;
-	padding-block: 0.9rem;
-	gap: 0.5rem;
-	align-items: center;
-`;
-
-const StyledProductPrice = styled.span`
-	font-size: ${FONT_SIZE.xs};
-
-	@media screen and (min-width: 1024px) {
-		font-size: ${FONT_SIZE.homexs};
-	}
-`;
-
-const StyledAddToCart = styled.div`
-	width: 1rem;
-	height: auto;
-	cursor: pointer;
-`;
-
-const StyledImgHome = styled.img`
-	width: 100%;
-	height: 100vh;
-	position: relative;
-
-	@media screen and (min-width: 1024px) {
-		margin-bottom: 8rem;
-	}
-`;
-
 const StyledProductsContainer = styled.div`
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 0.2rem;
 	padding-block: 1rem;
 	padding-inline: 2rem;
-	grid-template-rows: auto;
 
 	h1 {
 		font-size: ${FONT_SIZE.s};
@@ -109,10 +87,9 @@ const StyledProductsContainer = styled.div`
 	}
 
 	@media screen and (min-width: 786px) {
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: auto;
 		padding-inline: 0;
 		padding-block: 0;
+		gap: 3rem;
 
 		h1 {
 			font-size: ${FONT_SIZE.s};
@@ -128,50 +105,94 @@ const StyledProductsContainer = styled.div`
 	}
 `;
 
-const StyledProductSolar = styled.div`
-	@media screen and (min-width: 786px) {
-		padding-left: 25rem;
-		grid-row: 1 / 2;
-		grid-column: 1 / 2;
-	}
-`;
+const StyledProduct = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 4rem;
 
-const StyledProductCleanser = styled.div`
-	@media screen and (min-width: 786px) {
-		padding-left: 25rem;
-		grid-row: 2 / 3;
-		grid-column: 1 / 2;
+	@media screen and (min-width: 768px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 	}
-`;
-
-const StyledProductRetinol = styled.div`
-	@media screen and (min-width: 786px) {
-		padding-left: 25rem;
-		grid-row: 3 / 4;
-		grid-column: 1 / 2;
+	& > div {
+		@media (min-width: 768px) {
+			margin-left: 25rem; // Aquí ajustas cuánto se desplaza el texto a la derecha
+			max-width: 50%; // Opcional, para que no se ensanche demasiado
+			margin-bottom: 22.5rem;
+		}
 	}
 `;
 
 const StyledProductPhoto = styled.img`
 	width: 100%;
-	margin-bottom: 4rem;
+	max-width: 100%;
+	margin-top: 1rem;
 
-	@media screen and (min-width: 1024px) {
-		grid-column: 2 / 3;
-		margin-left: auto;
-		width: 80%;
-		margin-bottom: 8rem;
-		padding-right: 2rem;
+	@media (min-width: 768px) {
+		width: 78%;
+		margin-left: 8rem;
 	}
 `;
+
+const StyledProductPrice = styled.span`
+	font-size: ${FONT_SIZE.xs};
+
+	@media screen and (min-width: 1024px) {
+		font-size: ${FONT_SIZE.homexs};
+	}
+`;
+
+// Cart
+
+const StyledAddToCart = styled.div`
+	width: 1rem;
+	height: auto;
+`;
+
+const StyledContainerPrice = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-bottom: 1rem;
+
+	@media screen and (min-width: 768px) {
+		margin-bottom: 0;
+	}
+`;
+
+const StyledQuantityButton = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+`;
+
+const StyledQuantity = styled.button`
+	background: none;
+	border: 1px solid #3b3e56;
+	padding: 0.5px 5px;
+
+	&:hover {
+		background-color: ${COLORS.lime};
+	}
+
+	&:focus {
+		outline: none;
+	}
+`;
+
+const StyledQuantityDisplay = styled.span`
+	font-size: ${FONT_SIZE.xs};
+	font-family: ${FONT_FAMILY.manrope};
+	text-align: center;
+	width: 15px; // Ancho fijo para el número, asegurando que se alinee con los botones
+`;
+
 const StyledVideo = styled.div`
 	display: none; // provisional hasta que sepa como quitar el padding
 
 	@media screen and (min-width: 768px) {
 		display: block;
-		position: relative;
-		grid-row: 4 / 5;
-		grid-column: -1 / 1;
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;
@@ -222,16 +243,17 @@ const StyledVideoLogo = styled.div`
 export {
 	StyledMain,
 	StyledProductsContainer,
-	StyledAddToCart,
 	StyledButtonsContainer,
 	StyledButton,
 	StyledProductPhoto,
 	StyledProductPrice,
-	StyledCartAndPrice,
-	StyledProductSolar,
-	StyledProductCleanser,
-	StyledProductRetinol,
 	StyledImgHome,
 	StyledVideo,
 	StyledVideoLogo,
+	StyledProduct,
+	StyledAddToCart,
+	StyledQuantity,
+	StyledQuantityButton,
+	StyledContainerPrice,
+	StyledQuantityDisplay,
 };
