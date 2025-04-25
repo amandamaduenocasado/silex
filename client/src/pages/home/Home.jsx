@@ -23,6 +23,7 @@ import { PICTURES } from '../../constants/pictures-info';
 import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
+import { motion, AnimatePresence } from 'framer-motion'; // Animación para el cart
 
 const productImages = [PICTURES.solar, PICTURES.cleanser, PICTURES.retinol];
 
@@ -89,27 +90,49 @@ const Home = () => {
 								<StyledContainerPrice>
 									<StyledProductPrice>{product.price}</StyledProductPrice>
 
-									{/* Lógica de carrito */}
-									{!productInCart ? (
-										<StyledAddToCart onClick={() => addToCart(product)}>
-											<img
-												src='/assets/images/silex/add-to-cart.png'
-												alt='add to cart'
-											/>
-										</StyledAddToCart>
-									) : (
-										<StyledQuantityButton>
-											<StyledQuantity onClick={() => decrementItem(product)}>
-												-
-											</StyledQuantity>
-											<StyledQuantityDisplay>
-												{productInCart.quantity}
-											</StyledQuantityDisplay>
-											<StyledQuantity onClick={() => incrementItem(product)}>
-												+
-											</StyledQuantity>
-										</StyledQuantityButton>
-									)}
+									{/* Carrito */}
+									<AnimatePresence mode='wait'>
+										{!productInCart ? (
+											<motion.div
+												key='add'
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												exit={{ opacity: 0 }}
+												transition={{ duration: 0.2 }}
+											>
+												<StyledAddToCart onClick={() => addToCart(product)}>
+													<img
+														src='/assets/images/silex/add-to-cart.png'
+														alt='add to cart'
+													/>
+												</StyledAddToCart>
+											</motion.div>
+										) : (
+											<motion.div
+												key='counter'
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												exit={{ opacity: 0 }}
+												transition={{ duration: 0.2 }}
+											>
+												<StyledQuantityButton>
+													<StyledQuantity
+														onClick={() => decrementItem(product)}
+													>
+														-
+													</StyledQuantity>
+													<StyledQuantityDisplay>
+														{productInCart.quantity}
+													</StyledQuantityDisplay>
+													<StyledQuantity
+														onClick={() => incrementItem(product)}
+													>
+														+
+													</StyledQuantity>
+												</StyledQuantityButton>
+											</motion.div>
+										)}
+									</AnimatePresence>
 								</StyledContainerPrice>
 							</div>
 

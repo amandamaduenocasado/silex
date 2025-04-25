@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
 		setCart(
 			cart
 				.map(item =>
-					item.id === product.id && item.quantity > 1
+					item.id === product.id
 						? { ...item, quantity: item.quantity - 1 }
 						: item
 				)
