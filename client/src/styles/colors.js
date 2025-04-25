@@ -1,5 +1,5 @@
 export const COLORS = {
-	dark: '##3B3E56',
+	dark: '#3B3E56',
 	lime: '#55FF6F',
 	softLime: '#91FF98',
 	neon: '#00FF19',
