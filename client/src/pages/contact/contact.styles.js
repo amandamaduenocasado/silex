@@ -16,7 +16,7 @@ const StyledBannerContact = styled.div`
 	overflow: hidden;
 
 	video {
-		position: absolute;
+		position: fixed;
 		top: 50%;
 		left: 50%;
 		object-fit: cover;
@@ -61,10 +61,28 @@ const StyledContactPhone = styled.span`
 	}
 `;
 
+const StyledMuteButton = styled.button`
+	display: none;
+
+	@media screen and (width>=1024px) {
+		display: block;
+		position: absolute;
+		border: none;
+		cursor: pointer;
+		font-size: ${FONT_SIZE.l};
+		z-index: 10;
+		background-color: transparent;
+		color: ${COLORS.softLime};
+		top: 0.9rem;
+		right: 0.3rem;
+	}
+`;
+
 export {
 	StyledMain,
 	StyledBannerContact,
 	StyledContactContainer,
 	StyledContactInfo,
 	StyledContactPhone,
+	StyledMuteButton,
 };

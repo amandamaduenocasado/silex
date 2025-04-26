@@ -40,7 +40,7 @@ const StyledMiniCartContainer = styled.div`
 		padding: 3rem;
 		padding-top: 4rem;
 		border-radius: 3px;
-		background-color: yellow;
+		background-color: #fff;
 	}
 
 	@keyframes fadeOut {

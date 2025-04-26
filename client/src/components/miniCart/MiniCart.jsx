@@ -57,7 +57,7 @@ const MiniCart = ({ onClose }) => {
 					<StyledMiniCartItem key={item.id}>
 						<StyledProductMini src={item.miniature} />
 						<StyledNameMini>{item.name}</StyledNameMini>
-						<StyledQuantityMini>x{item.quantity}</StyledQuantityMini>
+						<StyledQuantityMini>{item.quantity}</StyledQuantityMini>
 					</StyledMiniCartItem>
 				))
 			)}

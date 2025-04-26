@@ -4,10 +4,14 @@ import { CartContext } from '../../providers/CartProvider';
 const CartPage = () => {
 	const { cart } = useContext(CartContext);
 
+	const cartInConstruction = true; // Puedes cambiarlo a false cuando termines de construir el carrito
+
 	return (
 		<div>
-			<h1>Carrito</h1>
-			{cart.length === 0 ? (
+			<h1></h1>
+			{cartInConstruction ? (
+				<p>The cart is under construction! Please check back soon.</p> // Mensaje de construcción
+			) : cart.length === 0 ? (
 				<p>Tu carrito está vacío.</p>
 			) : (
 				<ul>

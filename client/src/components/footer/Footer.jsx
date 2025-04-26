@@ -29,7 +29,7 @@ const Footer = () => {
 						</StyledSpanRight>
 
 						<StyledVideoFooter>
-							<video autoPlay loop>
+							<video autoPlay loop playsInline muted>
 								<source
 									src='/assets/images/silex/tree-square.mp4'
 									type='video/mp4'
@@ -38,7 +38,7 @@ const Footer = () => {
 						</StyledVideoFooter>
 
 						<StyledVideoFooter>
-							<video autoPlay loop>
+							<video autoPlay muted loop playsInline>
 								<source
 									src='/assets/images/silex/horses-square.mp4'
 									type='video/mp4'
