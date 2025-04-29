@@ -7,7 +7,7 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem; /* hueco entre logo y margen superior */
-	padding-top: 3rem;
+	padding-top: ${({ incart }) => (incart ? '3rem' : '0rem')};
 `;
 
 const StyledContainer = styled.div`
@@ -120,9 +120,14 @@ const StyledRequired = styled.span`
 `;
 
 const StyledLogoRegister = styled.img`
+	padding-top: 3rem;
 	width: 5rem;
 	display: flex;
 	align-items: center;
+
+	/* Si estamos en /cart, ocultamos el logo */
+	${({ inCart }) => inCart && 'display: none;'}
+
 	@media screen and (width>=768px) {
 		width: 4rem;
 	}

@@ -25,6 +25,9 @@ export const CartProvider = ({ children }) => {
 		}
 	};
 
+	const calculateSubtotal = () => {
+		return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+	};
 	const incrementItem = product => {
 		setCart(
 			cart.map(item =>
@@ -47,7 +50,13 @@ export const CartProvider = ({ children }) => {
 
 	return (
 		<CartContext.Provider
-			value={{ cart, addToCart, incrementItem, decrementItem }}
+			value={{
+				cart,
+				addToCart,
+				incrementItem,
+				decrementItem,
+				calculateSubtotal,
+			}}
 		>
 			{children}
 		</CartContext.Provider>

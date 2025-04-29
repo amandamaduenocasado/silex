@@ -10,13 +10,7 @@ const Header = ({ showMenu, onCartClick }) => {
 
 	// Rutas donde NO se muestra el Header
 
-	const hideHeaderOnPaths = [
-		'/login',
-		'/register',
-		'/redirect',
-		'/cart',
-		'/contact',
-	];
+	const hideHeaderOnPaths = ['/login', '/register', '/redirect', '/contact'];
 	if (hideHeaderOnPaths.includes(location.pathname)) return null;
 
 	// Solo muestra el logo en ciertas páginas
@@ -25,6 +19,7 @@ const Header = ({ showMenu, onCartClick }) => {
 		location.pathname === '/about' ||
 		location.pathname === '/shop' ||
 		location.pathname === '/redirect' ||
+		location.pathname === '/cart' ||
 		location.pathname === '/';
 
 	// Función para abrir/cerrar el menú

@@ -104,7 +104,10 @@ const Home = () => {
 								<p>{product.subdescription}</p>
 								<p>{product.minidescription}</p>
 								<StyledContainerPrice>
-									<StyledProductPrice>{product.price}</StyledProductPrice>
+									<StyledProductPrice>
+										{product.price}€ {''}
+										{product.ml}
+									</StyledProductPrice>
 
 									{/* Lógica de carrito */}
 									{!productInCart ? (

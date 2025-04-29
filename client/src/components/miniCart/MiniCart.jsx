@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 const MiniCart = ({ onClose }) => {
 	const [isClosing, setIsClosing] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
+	const { cart } = useContext(CartContext);
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {
@@ -43,15 +44,14 @@ const MiniCart = ({ onClose }) => {
 		return () => window.removeEventListener('resize', handleResize); // Limpiamos el event listener
 	}, []);
 
-	const { cart } = useContext(CartContext);
-
 	return (
 		<StyledMiniCartContainer isClosing={isClosing}>
 			<StyledCloseButton onClick={onClose}>x</StyledCloseButton>
+
 			{isMobile ? (
-				<StyledProductAdd>Producto añadido</StyledProductAdd> // En móvil solo mostramos el mensaje
+				<StyledProductAdd>{`It's in the cart`}</StyledProductAdd> // En móvil solo mostramos este mensaje
 			) : cart.length === 0 ? (
-				<p>El carrito está vacío</p>
+				<p>Looks like your cart is empty!</p>
 			) : (
 				cart.map(item => (
 					<StyledMiniCartItem key={item.id}>

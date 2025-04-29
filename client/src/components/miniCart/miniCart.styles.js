@@ -2,16 +2,41 @@ import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
 
 const StyledProductAdd = styled.div`
-	font-size: 0.8rem; /* Hacemos el texto más pequeño */
+	font-size: 0.8rem;
+	display: flex; /* Hacemos el texto más pequeño */
+`;
+
+const StyledCloseButton = styled.button`
+	background: none;
+	border: none;
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	cursor: pointer;
+	color: #888;
+	transition: color 0.2s ease;
+	text-decoration: none;
+	font-size: 0.8rem;
+
+	&:hover {
+		color: #000;
+	}
+
+	@media screen and (min-width: 768px) {
+		top: 15px;
+		right: 15px;
+		font-size: 1rem;
+	}
 `;
 
 const StyledMiniCartContainer = styled.div`
 	position: fixed;
-	width: 10rem;
+	width: 9rem;
 	height: 3rem;
 	top: 0.5rem;
 	right: 0.5rem;
-	background-color: yellow;
+	background-color: #91ff98;
+	color: #3b3e56;
 	padding: 1rem;
 	border-radius: 3px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -66,34 +91,6 @@ const StyledMiniCartItem = styled.div`
 	}
 `;
 
-const StyledCloseButton = styled.button`
-	background: none;
-	border: none;
-	position: absolute;
-	top: 12px;
-	right: 10px;
-	cursor: pointer;
-	color: #888;
-	transition: color 0.2s ease;
-	text-decoration: none;
-
-	&:hover {
-		color: #000;
-	}
-
-	@media screen and (min-width: 768px) {
-		background: none;
-		border: none;
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		cursor: pointer;
-		color: #888;
-		transition: color 0.2s ease;
-		text-decoration: none;
-	}
-`;
-
 const StyledCheckOut = styled.div`
 	display: flex;
 	gap: 5rem;
@@ -101,7 +98,7 @@ const StyledCheckOut = styled.div`
 
 const StyledButtonMini = styled.button`
 	background-color: white;
-	color: ${COLORS.dark};
+	color: #3b3e56;
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.3s ease;

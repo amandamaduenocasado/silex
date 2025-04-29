@@ -19,27 +19,33 @@ import {
 
 import { useForm } from 'react-hook-form';
 
-const Register = () => {
+const Register = ({ redirectTo = '/', inCart }) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
 	const navigate = useNavigate();
 	const errorMessage = '*This field is required';
+
 	return (
-		<StyledMain>
+		<StyledMain inCart={inCart}>
 			<Link to='/'>
 				<StyledLogoRegister
+					inCart={inCart}
 					srcSet='/assets/images/silex/logo-silex-2025-s.png 768w, /assets/images/silex/logo-silex-2025-s.png 1024w'
 					sizes='(max-width: 1024px) 50vw, 100vw'
 					src='/assets/images/silex/logo-silex-2025-s.png'
 					alt='logo silex'
+					r
 				/>
 			</Link>
 			<StyledContainer>
 				<StyledRegisterForm
-					onSubmit={handleSubmit(data => registerUser(data, navigate))}
+					onSubmit={handleSubmit(data =>
+						registerUser(data, navigate, redirectTo)
+					)}
 				>
 					{/* NAME */}
 					<StyledInputAndTag>
@@ -71,7 +77,7 @@ const Register = () => {
 							{...register('province')}
 							placeholder='Province'
 						/>
-						<StyledRequired>{errors.address?.message}</StyledRequired>
+						<StyledRequired>{errors.province?.message}</StyledRequired>
 					</StyledInputAndTag>
 
 					{/* ADDRESS */}
@@ -162,7 +168,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, navigate) => {
+const registerUser = async (data, navigate, redirectTo) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -181,7 +187,7 @@ const registerUser = async (data, navigate) => {
 		};
 		await createData(newUser);
 		console.log('User Registered');
-		navigate('/');
+		navigate(redirectTo || '/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);
 	}
