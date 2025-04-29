@@ -8,7 +8,7 @@ export const PRODUCTS = [
 		description:
 			'Facial sunscreen with an ultra-light texture and an aqueous external phase, leaving a silky finish',
 		subdescription:
-			'Immediate absorption. It melts into the skin and provides deep cleansing. Hydrates the skin and offers antioxidant action',
+			'Instant absorption. Blends seamlessly with the skin and provides high protection. Hydrates and adds a beautiful natural tint',
 		minidescription: 'This is the first step of your skincare routine',
 		price: '17.95€ 50 ML',
 		miniature: '/assets/images/silex/miniature-baby.png',
@@ -20,7 +20,7 @@ export const PRODUCTS = [
 		description:
 			'Facial cleanser with an ultra-light texture and an aqueous external phase, leaving a silky finish',
 		subdescription:
-			'Immediate absorption.It melts into the skin and provides deep cleansing. Hydrates the skin and offers antioxidant action',
+			'Immediate absorption. It melts into the skin and provides deep cleansing. Hydrates the skin and offers antioxidant action',
 		minidescription: 'This is the second step of your skincare routine',
 		price: '20.95€ 75 ML',
 		miniature: '/assets/images/silex/mouth-bottle.png',

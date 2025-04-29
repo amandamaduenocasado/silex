@@ -24,6 +24,7 @@ import { PRODUCTS } from '../../constants/products-info';
 import { useState, useEffect, useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
 import MiniCart from '../../components/miniCart/MiniCart';
+import AudioPlayer from '../../components/audioPlayer/audioPlayer';
 
 const productImages = [PICTURES.solar, PICTURES.cleanser, PICTURES.retinol];
 
@@ -61,6 +62,12 @@ const Home = () => {
 
 	return (
 		<StyledMain>
+			{/* AUDIO */}
+			<AudioPlayer
+				src='assets/audio/silex-ambient.mp3'
+				triggerOnScroll={true}
+			/>
+
 			{/* IMAGE */}
 			<StyledImgHome
 				srcSet='/assets/images/silex/photo-body-mobile-fix.jpg 768w, /assets/images/silex/photo-body.jpg 1024w'

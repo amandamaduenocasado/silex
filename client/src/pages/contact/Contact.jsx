@@ -5,7 +5,9 @@ import {
 	StyledContactInfo,
 	StyledContactPhone,
 	StyledMuteButton,
-} from './contact.styles'; // Importas también el nuevo botón
+} from './contact.styles';
+
+import AudioPlayer from '../../components/audioPlayer/audioPlayer';
 
 const Contact = () => {
 	const videoRef = useRef(null);
@@ -21,6 +23,7 @@ const Contact = () => {
 
 	return (
 		<>
+			<AudioPlayer src='assets/audio/silex-contact.mp3' />
 			<StyledBannerContact>
 				<video ref={videoRef} autoPlay muted={isMuted} loop playsInline>
 					<source src='/assets/images/silex/baby-video.mp4' type='video/mp4' />

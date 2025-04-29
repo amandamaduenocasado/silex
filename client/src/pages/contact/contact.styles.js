@@ -11,9 +11,10 @@ const StyledMain = styled.main`
 
 const StyledBannerContact = styled.div`
 	position: relative;
-	width: 100%;
-	height: 100vh;
+	width: 100vw;
+	height: auto;
 	overflow: hidden;
+	max-width: 100%;
 
 	video {
 		position: fixed;

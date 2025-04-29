@@ -20,16 +20,13 @@ const Footer = () => {
 				<>
 					<StyledGrid>
 						<StyledSpan> SPAIN | SPANISH </StyledSpan>
-						<StyledSpanCenter>
-							{' '}
-							INSTAGRAM AND RRSS @SILEXSPAIN{' '}
-						</StyledSpanCenter>
+						<StyledSpanCenter>INSTAGRAM AND RRSS @SILEXSPAIN</StyledSpanCenter>
 						<StyledSpanRight>
-							© 2025 SILEX. ALL RIGHTS RESERVED{' '}
+							© 2025 SILEX. ALL RIGHTS RESERVED
 						</StyledSpanRight>
 
 						<StyledVideoFooter>
-							<video autoPlay loop playsInline muted>
+							<video autoPlay loop playsInline>
 								<source
 									src='/assets/images/silex/tree-square.mp4'
 									type='video/mp4'
@@ -38,7 +35,7 @@ const Footer = () => {
 						</StyledVideoFooter>
 
 						<StyledVideoFooter>
-							<video autoPlay muted loop playsInline>
+							<video autoPlay loop playsInline>
 								<source
 									src='/assets/images/silex/horses-square.mp4'
 									type='video/mp4'
