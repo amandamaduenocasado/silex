@@ -20,7 +20,8 @@ const Footer = () => {
 				<>
 					<StyledGrid>
 						<StyledSpan> SPAIN | SPANISH </StyledSpan>
-						<StyledSpanCenter>INSTAGRAM AND RRSS @SILEXSPAIN</StyledSpanCenter>
+
+						<StyledSpanCenter>INSTAGRAM AND RRSS @SILEXSPAIN </StyledSpanCenter>
 						<StyledSpanRight>
 							© 2025 SILEX. ALL RIGHTS RESERVED
 						</StyledSpanRight>

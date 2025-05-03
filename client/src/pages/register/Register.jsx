@@ -161,7 +161,7 @@ const Register = ({ redirectTo = '/', inCart }) => {
 						/> */}
 					</StyledTerms>
 
-					<StyledButton type='submit' value='Register' />
+					<StyledButton type='submit'>Register</StyledButton>
 				</StyledRegisterForm>
 			</StyledContainer>
 		</StyledMain>
