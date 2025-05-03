@@ -41,7 +41,7 @@ const Login = () => {
 							id='password'
 						/>
 					</StyledInputAndTag>
-					<StyledButton type='submit' value='Sign In' />
+					<StyledButton type='submit'>Sign In</StyledButton>
 					<StyledPrivacy>Privacy Policy</StyledPrivacy>
 				</StyledForm>
 			</StyledContainer>
