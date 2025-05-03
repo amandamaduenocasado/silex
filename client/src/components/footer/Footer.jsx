@@ -20,8 +20,15 @@ const Footer = () => {
 				<>
 					<StyledGrid>
 						<StyledSpan> SPAIN | SPANISH </StyledSpan>
-
-						<StyledSpanCenter>INSTAGRAM AND RRSS @SILEXSPAIN </StyledSpanCenter>
+						<a
+							href='https://www.instagram.com/silexcosmetics/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<StyledSpanCenter>
+								INSTAGRAM AND RRSS @SILEXSPAIN{' '}
+							</StyledSpanCenter>
+						</a>
 						<StyledSpanRight>
 							© 2025 SILEX. ALL RIGHTS RESERVED
 						</StyledSpanRight>
