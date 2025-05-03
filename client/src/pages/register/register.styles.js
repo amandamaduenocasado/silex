@@ -88,8 +88,9 @@ const StyledCheckbox = styled.input`
 
 const StyledButton = styled.button`
 	font-size: ${FONT_SIZE.xs};
-	display: flex;
+	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	height: 2.5rem;
 	background-color: ${COLORS.softLime};
 	border-radius: 0.2rem;
