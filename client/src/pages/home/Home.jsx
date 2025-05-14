@@ -179,11 +179,11 @@ const Home = () => {
 			<StyledVideo>
 				<video autoPlay loop playsInline>
 					<source
-						src='/assets/images/silex/girl-video-cut.mp4'
+						src='/assets/images/silex/girl-video-cut.webm'
 						type='video/webm'
 					/>
 					<source
-						src='/asssets/images/silex/girl-video-cut.mp4'
+						src='/assets/images/silex/girl-video-cut.mp4'
 						type='video/mp4'
 					/>
 					Tu navegador no soporta el video
