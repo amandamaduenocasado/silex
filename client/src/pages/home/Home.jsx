@@ -177,7 +177,7 @@ const Home = () => {
 				</div>
 			</StyledVideoLogo>
 			<StyledVideo>
-				<video autoPlay loop playsInline>
+				<video autoPlay loop playsInline muted preload='auto'>
 					<source
 						src='/assets/images/silex/girl-video-cut.webm'
 						type='video/webm'
