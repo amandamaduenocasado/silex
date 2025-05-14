@@ -215,12 +215,17 @@ const StyledVideoLogo = styled.div`
 		display: flex;
 		position: relative;
 		left: 0;
-		width: 200vw; /* Doble del ancho para que entren los dos vídeos */
+		width: 100vw; /* Doble del ancho para que entren los dos vídeos */
 		display: flex;
-		flex-direction: row;
-		animation: slideLogos 10s linear infinite;
 		gap: 1rem;
 		margin-bottom: 5rem;
+
+		> div {
+			display: flex;
+			gap: 1rem;
+			width: max-content;
+			animation: slideLogos 30s linear infinite;
+		}
 	}
 
 	@keyframes slideLogos {
@@ -235,8 +240,11 @@ const StyledVideoLogo = styled.div`
 	video {
 		display: block;
 		width: 65vw;
+		max-width: 100vw;
 		height: auto;
 		object-fit: cover;
+		animation: slideLogos 30s linear infinite;
+		flex-shrink: 0;
 	}
 `;
 

@@ -34,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         height: 100%;
         color: ${COLORS.dark};
+
       
     }
 

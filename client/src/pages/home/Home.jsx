@@ -164,15 +164,17 @@ const Home = () => {
 
 			{/* Logo animado */}
 			<StyledVideoLogo>
-				{[...Array(4)].map((_, i) => (
-					<video key={i} autoPlay loop muted playsInline>
-						<source
-							src='/assets/images/silex/logo-large.webm'
-							type='video/webm'
-						/>
-						Tu navegador no soporta el vídeo.
-					</video>
-				))}
+				<div>
+					{[...Array(4)].map((_, i) => (
+						<video key={i} autoPlay loop muted playsInline>
+							<source
+								src='/assets/images/silex/logo-large.webm'
+								type='video/webm'
+							/>
+							Tu navegador no soporta el vídeo.
+						</video>
+					))}
+				</div>
 			</StyledVideoLogo>
 			<StyledVideo>
 				<video autoPlay loop playsInline>
