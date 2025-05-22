@@ -55,7 +55,7 @@ const StyledButton = styled.button`
 		bottom: 0.05rem;
 	}
 
-	@media screen and (min-width: 1600px) {
+	@media screen and (max-width > 1600px) {
 		width: 10.3rem;
 		height: 10.3rem;
 	}
