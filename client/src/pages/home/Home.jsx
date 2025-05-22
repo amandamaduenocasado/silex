@@ -67,7 +67,6 @@ const Home = () => {
 				src='assets/audio/silex-ambient.mp3'
 				triggerOnScroll={true}
 			/>
-
 			{/* IMAGE */}
 			<StyledImgHome
 				srcSet='/assets/images/silex/photo-body-mobile-fix.jpg 768w, /assets/images/silex/photo-body.jpg 1024w'
@@ -75,8 +74,7 @@ const Home = () => {
 				src='/assets/images/silex/photo-body-mobile-fix.png'
 				alt='img home'
 			/>
-
-			{/* FIRE BUTTON */}
+			FIRE BUTTON
 			{!user && (
 				<StyledButtonsContainer>
 					<Link to={'/about'}>
@@ -86,10 +84,8 @@ const Home = () => {
 					</Link>
 				</StyledButtonsContainer>
 			)}
-
 			{/* MINICART ABRIR CERRAR */}
 			{showCart && <MiniCart cart={cart} onClose={handleCloseCart} />}
-
 			<StyledProductsContainer>
 				{PRODUCTS.map((product, index) => {
 					const productInCart = cart.find(item => item.id === product.id);
@@ -161,7 +157,6 @@ const Home = () => {
 					);
 				})}
 			</StyledProductsContainer>
-
 			{/* Logo animado */}
 			<StyledVideoLogo>
 				<div>
