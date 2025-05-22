@@ -50,9 +50,14 @@ const StyledButton = styled.button`
 	}
 
 	@media screen and (min-width: 700px) {
-		width: 7.9rem;
-		height: 7.9rem;
+		width: 8.3rem;
+		height: 8.3rem;
 		bottom: 0.05rem;
+	}
+
+	@media screen and (min-width: 1600px) {
+		width: 10.3rem;
+		height: 10.3rem;
 	}
 `;
 
