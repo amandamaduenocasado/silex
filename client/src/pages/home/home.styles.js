@@ -50,8 +50,8 @@ const StyledButton = styled.button`
 	}
 
 	@media screen and (min-width: 768px) {
-		width: 8.1rem;
-		height: 8.1rem;
+		width: 8.3rem;
+		height: 8.3rem;
 		bottom: 0.05rem;
 	}
 
@@ -215,7 +215,7 @@ const StyledVideoLogo = styled.div`
 		display: flex;
 		position: relative;
 		left: 0;
-		width: 100vw; /* Doble del ancho para que entren los dos vídeos */
+		width: 100vw;
 		display: flex;
 		gap: 1rem;
 		margin-bottom: 5rem;
