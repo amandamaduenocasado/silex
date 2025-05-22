@@ -49,7 +49,7 @@ const StyledButton = styled.button`
 		transition: width 0.3s ease;
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 700px) {
 		width: 7.9rem;
 		height: 7.9rem;
 		bottom: 0.05rem;
