@@ -54,11 +54,6 @@ const StyledButton = styled.button`
 		height: 7.9rem;
 		bottom: 0.05rem;
 	}
-
-	@media screen and (min-width: 1600px) {
-		width: 12.3rem;
-		height: 12.3rem;
-	}
 `;
 
 const StyledProductsContainer = styled.div`
