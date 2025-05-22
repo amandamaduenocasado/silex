@@ -74,7 +74,7 @@ const Home = () => {
 				src='/assets/images/silex/photo-body-mobile-fix.png'
 				alt='img home'
 			/>
-			FIRE BUTTON
+			{/* FIRE BUTTON */}
 			{!user && (
 				<StyledButtonsContainer>
 					<Link to={'/about'}>
