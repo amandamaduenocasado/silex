@@ -50,7 +50,6 @@ const StyledButton = styled.button`
 	}
 
 	@media screen and (min-width: 768px) {
-		display: none;
 		width: 8.3rem;
 		height: 8.3rem;
 		bottom: 0.05rem;
@@ -240,7 +239,7 @@ const StyledVideoLogo = styled.div`
 
 	video {
 		display: block;
-		width: 65vw;
+		width: 50vw;
 		max-width: 100vw;
 		height: auto;
 		object-fit: cover;
