@@ -27,8 +27,8 @@ const StyledFireButton = styled.button`
 	}
 
 	@media screen and (min-width: 768px) {
-		width: 8.3rem;
-		height: 8.3rem;
+		width: 8rem;
+		height: 8rem;
 		bottom: 0.05rem;
 	}
 
